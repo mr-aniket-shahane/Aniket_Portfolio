@@ -23,7 +23,14 @@
     max-height: 120rem;
     position: relative;
 }
- 
+#banner {
+    height: 100vh;
+    background-color: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
 .home-hero__info {
     margin: 3rem auto 0 auto;
     max-width: 80rem;
@@ -57,4 +64,39 @@ hr {
         left: 50%;
         transform: translateX(-50%);
         border-radius: 5px;
+    }
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+}
+
+.box {
+    background-color: #fff;
+    padding: 30px;
+    margin-top: 30px;
+    border-radius: 5px;
+    width:100%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+th {
+    text-align: center
+}
+
+.section {
+    margin-bottom: 30px;
+}
+
+.banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+    .banner img {
+        max-width: 100%;
+        height: auto;
+        vertical-align: middle;
     }
