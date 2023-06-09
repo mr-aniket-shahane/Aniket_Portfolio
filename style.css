@@ -1,0 +1,60 @@
+.heading-primary {
+    font-size: 4rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-align: center;
+    color: #111;
+    font-weight: 800;
+}
+.home-hero__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    max-width: 90rem;
+    width: 92%;
+}
+.home-hero {
+    color: #fff;
+    background: linear-gradient(to right,rgba(245,245,245,.8),rgba(245,245,245,.8)),url(/daac885…/c157c/assets/svg/common-bg.svg);
+    background-position: center;
+    height: 100vh;
+    min-height: 80rem;
+    max-height: 120rem;
+    position: relative;
+}
+ 
+.home-hero__info {
+    margin: 3rem auto 0 auto;
+    max-width: 80rem;
+}
+hr {
+    content: '';
+    /* position: absolute; */
+    height: 5px !important;
+    width: 60% !important;
+    background: #facf0f !important;
+    border-radius: 5px !important;
+}
+.heading-sec__main {
+    display: block;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    letter-spacing: 3px;
+    text-align: center;
+    margin-bottom: 3.5rem;
+    position: relative;
+    color: #111;
+}
+    .heading-sec__main::after {
+        content: '';
+        position: absolute;
+        top: calc(100% + 1.5rem);
+        height: 5px;
+        width: 20%;
+        background: #facf0f;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 5px;
+    }
