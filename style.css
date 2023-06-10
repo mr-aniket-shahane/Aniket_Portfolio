@@ -23,8 +23,20 @@
     max-height: 120rem;
     position: relative;
 }
+.card {
+    border: 2px solid lightyellow !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4) !important;
+    /*background-color: lightyellow !important;*/
+}
+img{
+    width:100% !important;
+    aspect-ratio: 3/2 !important;
+    object-fit : contain !important; 
+
+}
 #banner {
     height: 100vh;
+    padding:1%;
     background-color: #f8f9fa;
     display: flex;
     align-items: center;
@@ -70,13 +82,10 @@ body {
     background-color: #f8f8f8;
 }
 
-.box {
-    background-color: #fff;
-    padding: 30px;
-    margin-top: 30px;
-    border-radius: 5px;
-    width:100%;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+.box { 
+    padding: 5%;
+    margin-top: 5%; 
+    width:100%; 
 }
 
 th {
