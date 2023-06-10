@@ -14,6 +14,9 @@
     max-width: 90rem;
     width: 92%;
 }
+.card-title{
+    font-weight:600;
+}
 .home-hero {
     color: #fff;
     background: linear-gradient(to right,rgba(245,245,245,.8),rgba(245,245,245,.8)),url(/daac885…/c157c/assets/svg/common-bg.svg);
@@ -23,18 +26,54 @@
     max-height: 120rem;
     position: relative;
 }
+.certification-card .card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #fff;
+}
+
+.certification-card .card-body {
+    font-size: 16px;
+    color: #333;
+}
+li{
+    list-style:none;
+    height: 5%;
+    text-align : left;
+    width : 100%;
+}
+.card img {
+    /*border-bottom: solid 5px lightyellow;*/
+    width: 100% !important;
+    aspect-ratio: 3/2 !important;
+    padding: 5%;
+
+    /* CSS styles here */
+}
+.card-body {
+    border-top: solid 3px #facf0f;
+}
 .card {
+    width:100%;
     border: 2px solid lightyellow !important;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4) !important;
     /*background-color: lightyellow !important;*/
 }
-img{
-    width:100% !important;
+img{ 
     aspect-ratio: 3/2 !important;
     object-fit : contain !important; 
-
+    
 }
-#banner {
+.highlight-banner {
+    background-color: #f2f2f2;
+    padding: 10px;
+    border-left: 5px solid #facf0f;
+    margin-bottom: 20px;
+}
+
+.banner {
     height: 100vh;
     padding:1%;
     background-color: #f8f9fa;
@@ -96,7 +135,7 @@ th {
     margin-bottom: 30px;
 }
 
-.banner {
+.banner_data {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -104,7 +143,7 @@ th {
     text-align: center;
 }
 
-    .banner img {
+    .banner_data img {
         max-width: 100%;
         height: auto;
         vertical-align: middle;
