@@ -15,9 +15,17 @@
       background: linear-gradient(135deg, #f8fafc 0%, #e0eafc 100%);
       color: #232526;
     }
+      a, button {
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      a:hover, a:focus, button:hover, button:focus {
+        transform: scale(1.12);
+        box-shadow: 0 6px 18px 0 #facf0f;
+        outline: none;
+      }
     .navbar {
       box-shadow: 0 4px 24px rgba(44, 62, 80, 0.12);
-      background: linear-gradient(90deg, #232526 0%, #485563 100%);
+      background: linear-gradient(90deg, #232526 0%, #485563 100%), #232526;
       border-radius: 18px;
       margin: 1rem 2vw;
       padding: 0.5rem 2vw;
@@ -29,21 +37,35 @@
       z-index: 100;
       transition: box-shadow 0.2s, background 0.2s;
     }
-    .navbar-brand {
+    .navbar-inner {
+      padding: 0 2vw;
+    }
+     .navbar-brand {
       font-weight: 700;
       letter-spacing: 2px;
       font-size: 1.5rem;
       color: #facf0f !important;
-    }
+    }    
     .navbar-nav .nav-link {
-      font-size: 1.1rem;
+      font-size: 1.08rem;
       color: #fff !important;
-      margin-right: 1rem;
-      transition: color 0.2s;
+      margin-right: 0.7rem;
+      padding: 0.45rem 1.2rem;
+      border-radius: 50px;
+      background: rgba(255,255,255,0.08);
+      box-shadow: 0 2px 8px rgba(44,62,80,0.08);
+      font-weight: 500;
+      letter-spacing: 1px;
+      transition: color 0.2s, background 0.2s, transform 0.2s, box-shadow 0.2s;
     }
-    .navbar-nav .nav-link:hover {
-      color: #facf0f !important;
-    }
+      .navbar-nav .nav-link:hover {
+      color: #232526 !important;
+      background: linear-gradient(90deg,#facf0f 0%,#ffe985 100%);
+      transform: scale(1.12) !important;
+      box-shadow: 0 6px 18px 0 #facf0f !important;
+      z-index: 2;
+      }
+    
     header {
       background: linear-gradient(120deg, #e0eafc 0%, #f8fafc 100%);
       border-radius: 18px;
@@ -85,6 +107,24 @@
       border: none;
       background: #f8fafc;
       transition: transform 0.2s, box-shadow 0.2s;
+    }
+     .nav-link.minimal-link {
+      color: #fff !important;
+      background: rgba(255,255,255,0.08);
+      border-radius: 50px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      padding: 0.45rem 1.2rem;
+      margin-right: 0.7rem;
+      box-shadow: 0 2px 8px rgba(44,62,80,0.08);
+      transition: color 0.2s, background 0.2s, transform 0.2s, box-shadow 0.2s;
+     }
+      .nav-link.minimal-link:hover, .nav-link.minimal-link:focus {
+      color: #232526 !important;
+      background: linear-gradient(90deg,#facf0f 0%,#ffe985 100%);
+      transform: scale(1.12);
+      box-shadow: 0 6px 18px 0 #facf0f;
+      outline: none;
     }
     .card:hover {
       transform: translateY(-8px) scale(1.03);
@@ -195,18 +235,41 @@
       font-size: 1.15rem !important;
       transition: background 0.2s, color 0.2s;
     }
+    .contact-gradient-btn {
+      background: linear-gradient(90deg,#facf0f 0%,#ffe985 100%) !important;
+      color: #232526 !important;
+      border: none !important;
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(44,62,80,0.12);
+      transition: background 0.2s, color 0.2s;
+    }
+    .contact-gradient-btn:hover, .contact-gradient-btn:focus {
+      background: linear-gradient(90deg,#ffe985 0%,#facf0f 100%) !important;
+      color: #232526 !important;
+    }
+    .tech-lead-gradient {
+      background: linear-gradient(90deg,#facf0f 0%,#ffe985 100%) !important;
+      color: #232526 !important;
+      font-weight: 600;
+      border: none !important;
+      box-shadow: 0 2px 8px rgba(44,62,80,0.12);
+    }
   </style>
 </head>
-<body class="bg-light">
-  <nav class="navbar navbar-light minimal-nav sticky-top" style="background: #fff; box-shadow: 0 2px 12px rgba(44,62,80,0.07); border-radius: 16px; margin: 1.5rem 2vw; padding: 0.7rem 2vw;">
-    <div class="container d-flex justify-content-between align-items-center">
+<body class="bg-light"> 
+  <nav class="navbar navbar-light minimal-nav sticky-top">
+    <div class="d-flex justify-content-between align-items-center w-100 navbar-inner">
       <a class="navbar-brand fw-bold" style="font-size:2rem; color:#232526; letter-spacing:2px; font-family:'Montserrat',sans-serif;" href="#">Aniket Shahane</a>
-      <ul class="nav nav-pills gap-2">
-        <li class="nav-item"><a class="nav-link minimal-link" href="#about">About</a></li>
+      <ul class="nav nav-pills gap-2">  
+      <ul class="nav nav-pills gap-2 ms-auto">
         <li class="nav-item"><a class="nav-link minimal-link" href="#experience">Experience</a></li>
         <li class="nav-item"><a class="nav-link minimal-link" href="#projects">Projects</a></li>
         <li class="nav-item"><a class="nav-link minimal-link" href="#skills">Skills</a></li>
         <li class="nav-item"><a class="nav-link minimal-link" href="#education">Education</a></li>
+        <li class="nav-item"><a class="nav-link minimal-link" href="#certifications">Certifications</a></li>
+        <li class="nav-item"><a class="nav-link minimal-link" href="#trainings">Trainings</a></li>
+        <li class="nav-item"><a class="nav-link minimal-link" href="#publications">Publications</a></li>
+        <li class="nav-item"><a class="nav-link minimal-link" href="#about">About</a></li>
       </ul>
     </div>
   </nav>
@@ -217,11 +280,11 @@
       <h1 class="fw-bold mb-2" style="font-size:2.8rem;letter-spacing:2px;font-family:'Montserrat',sans-serif;">Aniket Sunil Shahane</h1>
       <div class="mb-2 text-muted" style="font-size:1.2rem;">
         <span class="me-2"><img src="https://cdn.wallofportfolios.in/production/images/location.57fea50af63b.svg" style="width:18px;vertical-align:middle;">Pune, Maharashtra, India</span>
-        <span class="badge bg-primary ms-2" style="font-size:1rem;">Technical Lead</span>
+        <span class="badge ms-2 tech-lead-gradient" style="font-size:1rem;">Technical Lead</span>
       </div>
       <div class="mb-3" style="font-size:1.15rem; color:#485563; font-family:'Roboto',sans-serif;">Full-Stack & Cloud Developer skilled in Angular, Blazor, .NET Core, SQL, MongoDB, and AI solutions.</div>
       <div class="d-flex gap-3 mb-2">
-        <a href="mailto:mr.aniketshahane@gmail.com" class="btn btn-primary rounded-pill profile-btn" style="font-size:1.1rem;min-width:120px;">Contact</a>
+        <a href="mailto:mr.aniketshahane@gmail.com" class="btn btn-outline-dark rounded-pill profile-btn" style="font-size:1.1rem;min-width:120px;">Contact</a>
         <a href="https://www.linkedin.com/in/mraniketshahane" target="_blank" class="btn btn-outline-dark rounded-pill profile-btn" style="font-size:1.1rem;min-width:120px;">LinkedIn</a>
       </div>
     </div>
@@ -230,14 +293,31 @@
   <section id="experience" class="container mb-5">
     <h2 class="mb-4" style="font-family:'Montserrat',sans-serif;font-size:2rem;">Experience</h2>
     <div class="mt-4 mb-5 text-center">
-      <h4 class="mb-3" style="font-family:'Roboto',sans-serif;">Total Experience</h4>
-      <div class="row justify-content-center" id="countdown">
-        <div class="col-auto"><span id="years" class="display-6 fw-bold"></span><div>Years</div></div>
-        <div class="col-auto"><span id="months" class="display-6 fw-bold"></span><div>Months</div></div>
-        <div class="col-auto"><span id="days" class="display-6 fw-bold"></span><div>Days</div></div>
-        <div class="col-auto"><span id="hours" class="display-6 fw-bold"></span><div>Hours</div></div>
-        <div class="col-auto"><span id="minutes" class="display-6 fw-bold"></span><div>Minutes</div></div>
-        <div class="col-auto"><span id="seconds" class="display-6 fw-bold"></span><div>Seconds</div></div>
+      <div id="countdown" class="d-flex flex-wrap justify-content-center gap-3">
+      <div class="exp-card text-center p-3 rounded shadow" style="background:linear-gradient(135deg,#e0eafc 0%,#bfc8d8 100%); min-width:90px;">
+        <div class="exp-value fw-bold" id="years" style="font-size:2.2rem; color:#2d3a4a;"></div>
+<div class="exp-label" style="font-size:1.1rem; color:#4a5a6a;">Years</div>
+</div>
+        <div class="exp-card text-center p-3 rounded shadow" style="background:linear-gradient(135deg,#e0eafc 0%,#bfc8d8 100%); min-width:90px;">
+          <div class="exp-value fw-bold" id="months" style="font-size:2.2rem; color:#2d3a4a;"></div>
+<div class="exp-label" style="font-size:1.1rem; color:#4a5a6a;">Months</div>
+</div>
+        <div class="exp-card text-center p-3 rounded shadow" style="background:linear-gradient(135deg,#e0eafc 0%,#bfc8d8 100%); min-width:90px;">
+          <div class="exp-value fw-bold" id="days" style="font-size:2.2rem; color:#2d3a4a;"></div>
+<div class="exp-label" style="font-size:1.1rem; color:#4a5a6a;">Days</div>
+</div>
+        <div class="exp-card text-center p-3 rounded shadow" style="background:linear-gradient(135deg,#e0eafc 0%,#bfc8d8 100%); min-width:90px;">
+          <div class="exp-value fw-bold" id="hours" style="font-size:2.2rem; color:#2d3a4a;"></div>
+<div class="exp-label" style="font-size:1.1rem; color:#4a5a6a;">Hours</div>
+</div>
+        <div class="exp-card text-center p-3 rounded shadow" style="background:linear-gradient(135deg,#e0eafc 0%,#bfc8d8 100%); min-width:90px;">
+          <div class="exp-value fw-bold" id="minutes" style="font-size:2.2rem; color:#2d3a4a;"></div>
+<div class="exp-label" style="font-size:1.1rem; color:#4a5a6a;">Minutes</div>
+</div>
+        <div class="exp-card text-center p-3 rounded shadow" style="background:linear-gradient(135deg,#e0eafc 0%,#bfc8d8 100%); min-width:90px;">
+          <div class="exp-value fw-bold" id="seconds" style="font-size:2.2rem; color:#2d3a4a;"></div>
+<div class="exp-label" style="font-size:1.1rem; color:#4a5a6a;">Seconds</div>
+</div>
       </div>
     </div>
     <div class="row g-5 justify-content-center">
@@ -711,6 +791,25 @@
       font-size: 1.15rem !important;
       transition: background 0.2s, color 0.2s;
     }
-  </style>
-</body>
+    .contact-gradient-btn {
+      background: linear-gradient(90deg,#facf0f 0%,#ffe985 100%) !important;
+      color: #232526 !important;
+      border: none !important;
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(44,62,80,0.12);
+      transition: background 0.2s, color 0.2s;
+    }
+    .contact-gradient-btn:hover, .contact-gradient-btn:focus {
+      background: linear-gradient(90deg,#ffe985 0%,#facf0f 100%) !important;
+      color: #232526 !important;
+    }
+    .tech-lead-gradient {
+      background: linear-gradient(90deg,#facf0f 0%,#ffe985 100%) !important;
+      color: #232526 !important;
+      font-weight: 600;
+      border: none !important;
+      box-shadow: 0 2px 8px rgba(44,62,80,0.12);
+    }
+  </style> 
+  </body>
 </html>
