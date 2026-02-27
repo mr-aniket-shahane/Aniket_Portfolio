@@ -29,3 +29,21 @@
   background-color: #FF5722;
   transform: rotateY(180deg);
 }
+
+/* Responsive styles for 3D elements */
+@media (max-width: 900px) {
+  .box, .face {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 600px) {
+  .box, .face {
+    width: 100px;
+    height: 100px;
+  }
+  .container {
+    perspective: 600px;
+  }
+}

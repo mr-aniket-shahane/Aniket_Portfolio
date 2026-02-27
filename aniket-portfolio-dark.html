@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aniket Shahane Portfolio - Dark Theme</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Montserrat', 'Roboto', Arial, sans-serif;
+      background: linear-gradient(135deg, #232526 0%, #485563 100%);
+      color: #f8fafc;
+    }
+    .minimal-nav {
+      box-shadow: 0 2px 12px rgba(44,62,80,0.18);
+      background: #232526;
+      border-radius: 16px;
+      margin: 1.5rem 2vw;
+      padding: 0.7rem 2vw;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transition: box-shadow 0.2s, background 0.2s;
+    }
+    .minimal-link {
+      font-size: 1.1rem;
+      color: #f8fafc !important;
+      background: none !important;
+      border-radius: 8px;
+      padding: 0.4rem 1rem;
+      font-family: 'Roboto',sans-serif;
+      transition: background 0.2s, color 0.2s;
+    }
+    .minimal-link:hover {
+      background: #485563 !important;
+      color: #facf0f !important;
+    }
+    header {
+      background: #232526;
+      border-radius: 18px;
+      box-shadow: 0 4px 32px rgba(44,62,80,0.18);
+      margin-top: 3.5rem;
+      margin-bottom: 3.5rem;
+      padding: 4rem 2rem;
+      max-width: 700px;
+      color: #f8fafc;
+    }
+    .profile-prominent {
+      background: none;
+      border-radius: 18px;
+      box-shadow: none;
+      margin: 0 auto;
+      max-width: 600px;
+    }
+    .profile-avatar {
+      transition: box-shadow 0.2s, border 0.2s;
+      border: 6px solid #485563;
+    }
+    .profile-avatar:hover {
+      box-shadow: 0 8px 32px #facf0f;
+      border: 6px solid #facf0f;
+    }
+    .profile-btn {
+      transition: box-shadow 0.2s, background 0.2s, color 0.2s;
+    }
+    .profile-btn:hover {
+      box-shadow: 0 2px 12px #facf0f;
+      background: #facf0f !important;
+      color: #232526 !important;
+      border-color: #facf0f !important;
+    }
+    .minimal-card {
+      background: #232526;
+      box-shadow: 0 2px 16px rgba(44,62,80,0.18);
+      border-radius: 16px;
+      transition: box-shadow 0.2s, transform 0.2s;
+      color: #f8fafc;
+    }
+    .minimal-card:hover {
+      box-shadow: 0 8px 32px #facf0f;
+      transform: translateY(-4px) scale(1.02);
+    }
+    section {
+      background: #232526;
+      color: #f8fafc;
+      border-radius: 18px;
+      box-shadow: 0 2px 24px rgba(44,62,80,0.18);
+      margin-bottom: 2rem;
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+    h2 {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 700;
+      color: #facf0f;
+      margin-bottom: 2rem;
+      letter-spacing: 1px;
+      text-align: center;
+      text-shadow: 0 2px 8px #232526, 0 1px 2px #485563;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: normal;
+    }
+    .contact-details {
+      background: #485563;
+      color: #facf0f;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(44,62,80,0.18);
+      padding: 1rem 1.5rem;
+    }
+    .contact-details a {
+      color: #facf0f;
+      text-decoration: none;
+    }
+    .contact-details a:hover {
+      text-decoration: underline;
+      color: #fff;
+    }
+    .card-title {
+      color: #facf0f;
+    }
+    .list-group-item {
+      background: #485563;
+      color: #facf0f;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+      border: none;
+      box-shadow: 0 1px 4px rgba(44,62,80,0.18);
+    }
+  </style>
+</head>
+<body class="bg-dark">
+  <!-- The rest of the HTML structure should be copied from the light theme file, with classes and styles as above for dark theme. -->
+  <nav class="navbar navbar-light minimal-nav sticky-top">
+    <div class="container d-flex justify-content-between align-items-center">
+      <a class="navbar-brand fw-bold" style="font-size:2rem; color:#facf0f; letter-spacing:2px; font-family:'Montserrat',sans-serif;" href="#">Aniket</a>
+      <ul class="nav nav-pills gap-2">
+        <li class="nav-item"><a class="nav-link minimal-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link minimal-link" href="#experience">Experience</a></li>
+        <li class="nav-item"><a class="nav-link minimal-link" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link minimal-link" href="#skills">Skills</a></li>
+        <li class="nav-item"><a class="nav-link minimal-link" href="#education">Education</a></li>
+        <li class="nav-item"><a class="nav-link minimal-link" href="#certifications">Certifications</a></li>
+        <li class="nav-item"><a class="nav-link minimal-link" href="#trainings">Trainings</a></li>
+        <li class="nav-item"><a class="nav-link minimal-link" href="#publications">Publications</a></li>
+      </ul>
+    </div>
+  </nav>
+  <!-- Profile Header -->
+  <header class="container py-5 text-center profile-header">
+    <div class="profile-prominent d-flex flex-column align-items-center py-4">
+      <img src="Images/user.png" alt="Aniket Shahane" class="profile-avatar shadow-lg mb-4" style="width:180px;height:180px;border-radius:50%;object-fit:cover;">
+      <h1 class="fw-bold mb-2" style="font-size:2.8rem;letter-spacing:2px;font-family:'Montserrat',sans-serif; color:#facf0f;">Aniket Shahane</h1>
+      <div class="mb-2 text-muted" style="font-size:1.2rem; color:#facf0f;">
+        <span class="me-2" style="color:#facf0f;"><img src="https://cdn.wallofportfolios.in/production/images/location.57fea50af63b.svg" style="width:18px;vertical-align:middle;"> Pune Division, Maharashtra, India</span>
+        <span class="badge bg-primary ms-2" style="font-size:1rem; background:#facf0f; color:#232526;">Technical Lead</span>
+      </div>
+      <div class="mb-3" style="font-size:1.15rem; color:#facf0f; font-family:'Roboto',sans-serif;">Full-Stack & Cloud Developer skilled in Angular, Blazor, .NET Core, SQL, MongoDB, and AI solutions.</div>
+      <div class="d-flex gap-3 mb-2">
+        <a href="mailto:mr.aniketshahane@gmail.com" class="btn btn-primary rounded-pill profile-btn" style="font-size:1.1rem;min-width:120px; background:#facf0f; color:#232526; border:none;">Contact</a>
+        <a href="https://www.linkedin.com/in/aniketshahane" target="_blank" class="btn btn-outline-light rounded-pill profile-btn" style="font-size:1.1rem;min-width:120px; border-color:#facf0f; color:#facf0f;">LinkedIn</a>
+      </div>
+    </div>
+  </header>
+  <!-- About Section -->
+  <section id="about" class="container mb-5 about-section">
+    <h2 class="mb-4">About Me</h2>
+    <div class="row g-4 align-items-center">
+      <div class="col-md-6">
+        <p class="lead" style="color:#facf0f;">Hello, I'm <b>Aniket Shahane</b>, a Technical Lead with 7 years of experience in architecting and developing scalable, high-performance applications. My expertise includes Angular, Blazor, .NET Core, SQL, MongoDB, WebAPI, Microservices, Cloud Solutions, and AI.</p>
+        <p style="color:#f8fafc;">I am passionate about leveraging cutting-edge technologies to solve complex challenges and drive digital transformation. I thrive in dynamic environments where I can lead teams, mentor developers, and deliver innovative solutions that fuel business success.</p>
+        <div class="contact-details mt-4">
+          <div class="mb-2"><span class="fw-bold">Email:</span> <a href="mailto:mr.aniketshahane@gmail.com">mr.aniketshahane@gmail.com</a></div>
+          <div class="mb-2"><span class="fw-bold">LinkedIn:</span> <a href="https://www.linkedin.com/in/aniketshahane" target="_blank">aniketshahane</a></div>
+          <div class="mb-2"><span class="fw-bold">Location:</span> Pune Division, Maharashtra, India</div>
+        </div>
+      </div>
+      <div class="col-md-6 text-center">
+        <img src="Images/user.png" alt="Aniket Shahane" class="img-fluid rounded shadow" style="max-width:300px; border:6px solid #facf0f;">
+      </div>
+    </div>
+  </section>
+  <!-- Experience Section -->
+  <section id="experience" class="container mb-5">
+    <h2 class="mb-4">Experience</h2>
+    <div class="mt-4 mb-5 text-center">
+      <h4 class="mb-3">Total Experience</h4>
+      <div class="row justify-content-center" id="countdown">
+        <div class="col-auto"><span id="years" class="display-6 fw-bold"></span><div>Years</div></div>
+        <div class="col-auto"><span id="months" class="display-6 fw-bold"></span><div>Months</div></div>
+        <div class="col-auto"><span id="days" class="display-6 fw-bold"></span><div>Days</div></div>
+        <div class="col-auto"><span id="hours" class="display-6 fw-bold"></span><div>Hours</div></div>
+        <div class="col-auto"><span id="minutes" class="display-6 fw-bold"></span><div>Minutes</div></div>
+        <div class="col-auto"><span id="seconds" class="display-6 fw-bold"></span><div>Seconds</div></div>
+      </div>
+    </div>
+    <div class="row g-5 justify-content-center">
+      <div class="col-md-5">
+        <div class="card h-100 text-center minimal-card">
+          <div class="d-flex flex-column align-items-center py-4">
+            <img src="Images/prosot-png.png" alt="Prosot India Pvt Ltd" style="width:64px;height:64px;object-fit:contain;margin-bottom:1rem;">
+            <h3 class="card-title mb-1">Prosot India Pvt Ltd</h3>
+            <span class="text-muted mb-1" style="font-size:1rem; color:#facf0f;">1st June 2019 – Present</span>
+            <span class="badge bg-primary mb-2" style="font-size:1rem; background:#facf0f; color:#232526;">Current</span>
+            <span class="fw-bold" style="font-size:1.1rem; color:#facf0f;">(<span id="yearsinprosot">6+</span> years)</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="card h-100 text-center minimal-card">
+          <div class="d-flex flex-column align-items-center py-4">
+            <img src="Images/v10x.png" alt="V10x Technologies" style="width:64px;height:64px;object-fit:contain;margin-bottom:1rem;">
+            <h3 class="card-title mb-1">V10x Technologies</h3>
+            <span class="text-muted mb-1" style="font-size:1rem; color:#facf0f;">25th May 2018 – 25th May 2019</span>
+            <span class="badge bg-secondary mb-2" style="font-size:1rem; background:#485563; color:#facf0f;">Past</span>
+            <span class="fw-bold" style="font-size:1.1rem; color:#facf0f;">(1 year)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Projects Section -->
+  <section id="projects" class="container mb-5">
+    <h2 class="mb-4">Projects</h2>
+    <div class="row g-4">
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100">
+          <img src="Images/arytic.png" class="card-img-top" alt="Arytic" style="background:#232526; border-radius:16px 16px 0 0;">
+          <div class="card-body">
+            <h5 class="card-title">Arytic</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100">
+          <img src="Images/clocker.png" class="card-img-top" alt="Clocr" style="background:#232526; border-radius:16px 16px 0 0;">
+          <div class="card-body">
+            <h5 class="card-title">Clocr</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100">
+          <img src="Images/mvs.png" class="card-img-top" alt="MVS360" style="background:#232526; border-radius:16px 16px 0 0;">
+          <div class="card-body">
+            <h5 class="card-title">MVS360</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100">
+          <img src="Images/dymax.png" class="card-img-top" alt="Dymax" style="background:#232526; border-radius:16px 16px 0 0;">
+          <div class="card-body">
+            <h5 class="card-title">Dymax</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100">
+          <img src="Images/newIndi.png" class="card-img-top" alt="New Indi" style="background:#232526; border-radius:16px 16px 0 0;">
+          <div class="card-body">
+            <h5 class="card-title">New Indi</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100">
+          <img src="Images/Tel.png" class="card-img-top" alt="Tokyo Electron" style="background:#232526; border-radius:16px 16px 0 0;">
+          <div class="card-body">
+            <h5 class="card-title">Tokyo Electron</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100">
+          <img src="Images/dfw.png" class="card-img-top" alt="DFW Land" style="background:#232526; border-radius:16px 16px 0 0;">
+          <div class="card-body">
+            <h5 class="card-title">DFW Land</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100">
+          <img src="Images/mtmotel.png" class="card-img-top" alt="My Motel" style="background:#232526; border-radius:16px 16px 0 0;">
+          <div class="card-body">
+            <h5 class="card-title">My Motel</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100">
+          <img src="Images/halo.png" class="card-img-top" alt="Halo Program" style="background:#232526; border-radius:16px 16px 0 0;">
+          <div class="card-body">
+            <h5 class="card-title">Halo Program</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100">
+          <img src="Images/AutoCodeGen.png" class="card-img-top" alt="Auto Code Gen" style="background:#232526; border-radius:16px 16px 0 0;">
+          <div class="card-body">
+            <h5 class="card-title">Auto Code Gen</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Skills Section -->
+  <section id="skills" class="container mb-5 skills-section">
+    <h2 class="mb-4">Skills</h2>
+    <div class="row g-4 justify-content-center">
+      <div class="col-6 col-md-2 text-center">
+        <div class="p-3 rounded shadow-lg" style="background: #232526;">
+          <img src="Images/C_Programming_Language.svg" alt="C" class="mb-2" style="max-width:60px;">
+          <div class="fw-bold text-warning" style="font-size:1.1rem;">C</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-2 text-center">
+        <div class="p-3 rounded shadow-lg" style="background: #232526;">
+          <img src="Images/c++.png" alt="C++" class="mb-2" style="max-width:60px;">
+          <div class="fw-bold text-warning" style="font-size:1.1rem;">C++</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-2 text-center">
+        <div class="p-3 rounded shadow-lg" style="background: #232526;">
+          <img src="Images/Blazor.png" alt="Blazor" class="mb-2" style="max-width:60px;">
+          <div class="fw-bold text-warning" style="font-size:1.1rem;">Blazor</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-2 text-center">
+        <div class="p-3 rounded shadow-lg" style="background: #232526;">
+          <img src="Images/CSharp.png" alt="C#" class="mb-2" style="max-width:60px;">
+          <div class="fw-bold text-warning" style="font-size:1.1rem;">C#</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-2 text-center">
+        <div class="p-3 rounded shadow-lg" style="background: #232526;">
+          <img src="Images/NET_Core_Logo.svg.png" alt=".Net Core" class="mb-2" style="max-width:60px;">
+          <div class="fw-bold text-warning" style="font-size:1.1rem;">.Net Core</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-2 text-center">
+        <div class="p-3 rounded shadow-lg" style="background: #232526;">
+          <img src="Images/angular.png" alt="Angular" class="mb-2" style="max-width:60px;">
+          <div class="fw-bold text-warning" style="font-size:1.1rem;">Angular</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-2 text-center">
+        <div class="p-3 rounded shadow-lg" style="background: #232526;">
+          <img src="Images/azure.png" alt="Azure" class="mb-2" style="max-width:60px;">
+          <div class="fw-bold text-warning" style="font-size:1.1rem;">Azure</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-2 text-center">
+        <div class="p-3 rounded shadow-lg" style="background: #232526;">
+          <img src="Images/R.png" alt="R" class="mb-2" style="max-width:60px;">
+          <div class="fw-bold text-warning" style="font-size:1.1rem;">R</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-2 text-center">
+        <div class="p-3 rounded shadow-lg" style="background: #232526;">
+          <img src="Images/python.svg" alt="Python" class="mb-2" style="max-width:60px;">
+          <div class="fw-bold text-warning" style="font-size:1.1rem;">Python</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-2 text-center">
+        <div class="p-3 rounded shadow-lg" style="background: #232526;">
+          <img src="Images/mysql.png" alt="MySQL" class="mb-2" style="max-width:60px;">
+          <div class="fw-bold text-warning" style="font-size:1.1rem;">MySQL</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-2 text-center">
+        <div class="p-3 rounded shadow-lg" style="background: #232526;">
+          <img src="Images/sql.svg" alt="SQL" class="mb-2" style="max-width:60px;">
+          <div class="fw-bold text-warning" style="font-size:1.1rem;">SQL</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-2 text-center">
+        <div class="p-3 rounded shadow-lg" style="background: #232526;">
+          <img src="Images/mongo.png" alt="MongoDB" class="mb-2" style="max-width:60px;">
+          <div class="fw-bold text-warning" style="font-size:1.1rem;">MongoDB</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-2 text-center">
+        <div class="p-3 rounded shadow-lg" style="background: #232526;">
+          <img src="Images/rest.png" alt="REST web services" class="mb-2" style="max-width:60px;">
+          <div class="fw-bold text-warning" style="font-size:1.1rem;">REST</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-2 text-center">
+        <div class="p-3 rounded shadow-lg" style="background: #232526;">
+          <img src="Images/git.png" alt="Git" class="mb-2" style="max-width:60px;">
+          <div class="fw-bold text-warning" style="font-size:1.1rem;">Git</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-2 text-center">
+        <div class="p-3 rounded shadow-lg" style="background: #232526;">
+          <img src="Images/html.png" alt="HTML" class="mb-2" style="max-width:60px;">
+          <div class="fw-bold text-warning" style="font-size:1.1rem;">HTML</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-2 text-center">
+        <div class="p-3 rounded shadow-lg" style="background: #232526;">
+          <img src="Images/css.svg" alt="CSS" class="mb-2" style="max-width:60px;">
+          <div class="fw-bold text-warning" style="font-size:1.1rem;">CSS</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-2 text-center">
+        <div class="p-3 rounded shadow-lg" style="background: #232526;">
+          <img src="Images/bootstrap.svg" alt="Bootstrap" class="mb-2" style="max-width:60px;">
+          <div class="fw-bold text-warning" style="font-size:1.1rem;">Bootstrap</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Education Section -->
+  <section id="education" class="container mb-5">
+    <h2 class="mb-4">Education</h2>
+    <div class="row justify-content-center g-4">
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 text-center border-0 shadow-lg bg-gradient" style="background: linear-gradient(135deg, #485563 0%, #232526 100%); color: #facf0f;">
+          <div class="card-body">
+            <div class="mb-3">
+              <span class="fa fa-graduation-cap fa-2x text-warning"></span>
+            </div>
+            <h5 class="card-title text-warning" style="font-size:1.3rem; font-weight:900; text-shadow: 0 2px 8px #232526, 0 1px 2px #facf0f; letter-spacing:1px; overflow:hidden; text-overflow:ellipsis; white-space:normal;">Master of Technology</h5>
+            <p class="fw-bold mb-1">Computer Science and Engineering</p>
+            <p class="mb-1">Vishwakarma Institute of Technology (Autonomous)</p>
+            <p class="mb-1">Savitribai Phule Pune University</p>
+            <span class="badge bg-success mb-2">2019</span>
+            <div class="text-warning fw-bold">CGPA 8.6</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 text-center border-0 shadow-lg bg-gradient" style="background: linear-gradient(135deg, #232526 0%, #485563 100%); color: #facf0f;">
+          <div class="card-body">
+            <div class="mb-3">
+              <span class="fa fa-university fa-2x text-warning"></span>
+            </div>
+            <h5 class="card-title text-warning" style="font-size:1.3rem; font-weight:900; text-shadow: 0 2px 8px #232526, 0 1px 2px #facf0f; letter-spacing:1px; overflow:hidden; text-overflow:ellipsis; white-space:normal;">Bachelor of Engineering</h5>
+            <p class="fw-bold mb-1">Information Technology</p>
+            <p class="mb-1">Jayawantrao Sawant College of Engineering</p>
+            <p class="mb-1">Savitribai Phule Pune University</p>
+            <span class="badge bg-success mb-2">2016</span>
+            <div class="text-warning fw-bold">67.93%</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 text-center border-0 shadow-lg bg-gradient" style="background: linear-gradient(135deg, #485563 0%, #232526 100%); color: #facf0f;">
+          <div class="card-body">
+            <div class="mb-3">
+              <span class="fa fa-certificate fa-2x text-warning"></span>
+            </div>
+            <h5 class="card-title text-warning" style="font-size:1.3rem; font-weight:900; text-shadow: 0 2px 8px #232526, 0 1px 2px #facf0f; letter-spacing:1px; overflow:hidden; text-overflow:ellipsis; white-space:normal;">Diploma</h5>
+            <p class="fw-bold mb-1">Computer Technology</p>
+            <p class="mb-1">P. Dr. V. V. P. Institute of Technology & Engineering (Polytechnic)</p>
+            <p class="mb-1">Maharashtra State Board of Technical Education</p>
+            <span class="badge bg-success mb-2">2013</span>
+            <div class="text-warning fw-bold">68.90%</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 text-center border-0 shadow-lg bg-gradient" style="background: linear-gradient(135deg, #485563 0%, #232526 100%); color: #facf0f;">
+          <div class="card-body">
+            <div class="mb-3">
+              <span class="fa fa-book fa-2x text-warning"></span>
+            </div>
+            <h5 class="card-title text-warning" style="font-size:1.3rem; font-weight:900; text-shadow: 0 2px 8px #232526, 0 1px 2px #facf0f; letter-spacing:1px; overflow:hidden; text-overflow:ellipsis; white-space:normal;">S.S.C</h5>
+            <p class="fw-bold mb-1">Secondary School Certificate</p>
+            <p class="mb-1">Shri Ambika Vidyalaya</p>
+            <p class="mb-1">Kedgaon Maharashtra State Board of S.S.C</p>
+            <span class="badge bg-success mb-2">2009</span>
+            <div class="text-warning fw-bold">75.69%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Certifications Section -->
+  <section id="certifications" class="container mb-5">
+    <h2 class="mb-4">Certifications</h2>
+    <ul class="list-group">
+      <li class="list-group-item">ORACLE Core Java Certification - Oracle Inc. (NIIT, Pune)</li>
+      <li class="list-group-item">MongoDB Essentials - Understand the Basics of MongoDB (Online - www.udemy.com)</li>
+      <li class="list-group-item">Object Oriented Programming (Online - www.udemy.com)</li>
+      <li class="list-group-item">Object Oriented Programming in Java (Online - www.udemy.com)</li>
+      <li class="list-group-item">HTML5 and CSS3 Fundamentals (Online - www.udemy.com)</li>
+      <li class="list-group-item">Learn Angular 5 from Scratch (Online - www.udemy.com)</li>
+    </ul>
+  </section>
+  <!-- Trainings Section -->
+  <section id="trainings" class="container mb-5">
+    <h2 class="mb-4">Trainings</h2>
+    <ul class="list-group">
+      <li class="list-group-item">Emerging trends in IT – Java, Servlet, PHP, MongoDB, Hadoop</li>
+      <li class="list-group-item">Advance techniques to write and present research paper</li>
+    </ul>
+  </section>
+  <!-- Publications Section -->
+  <section id="publications" class="container mb-5">
+    <h2 class="mb-4">Publications</h2>
+    <ul class="list-group">
+      <li class="list-group-item">Research Paper on Meta Search Engine for Traveler (IJRISE)</li>
+      <li class="list-group-item">Implementation Paper on Meta Search Engine for Traveler (ICRTCIT)</li>
+    </ul>
+  </section>
+ 
+</body>
+</html>

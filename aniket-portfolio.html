@@ -7,14 +7,27 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <style>
+        html {
+          scroll-behavior: smooth;
+        }
     body {
       font-family: 'Montserrat', 'Roboto', Arial, sans-serif;
-      background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
-      color: #222;
+      background: linear-gradient(135deg, #f8fafc 0%, #e0eafc 100%);
+      color: #232526;
     }
     .navbar {
-      box-shadow: 0 2px 12px rgba(44, 62, 80, 0.08);
-      background: linear-gradient(90deg, #232526 0%, #414345 100%);
+      box-shadow: 0 4px 24px rgba(44, 62, 80, 0.12);
+      background: linear-gradient(90deg, #232526 0%, #485563 100%);
+      border-radius: 18px;
+      margin: 1rem 2vw;
+      padding: 0.5rem 2vw;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid #e0eafc;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transition: box-shadow 0.2s, background 0.2s;
     }
     .navbar-brand {
       font-weight: 700;
@@ -32,25 +45,15 @@
       color: #facf0f !important;
     }
     header {
-      background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+      background: linear-gradient(120deg, #e0eafc 0%, #f8fafc 100%);
       border-radius: 18px;
-      box-shadow: 0 4px 32px rgba(250, 207, 15, 0.12);
-      margin-top: 2rem;
-      margin-bottom: 2rem;
-      padding: 3rem 2rem;
-    }
-    .display-4, .display-5 {
-      font-family: 'Montserrat', Arial, sans-serif;
-      color: #232526;
-      font-weight: 700;
-    }
-    hr {
-      border-top: 2px solid #facf0f;
-      width: 60px;
-      margin: 1.5rem auto;
+      box-shadow: 0 4px 32px rgba(44, 62, 80, 0.12);
+      margin-top: 3.5rem;
+      margin-bottom: 3.5rem;
+      padding: 5rem 2.5rem;
+      max-width: 900px;
     }
     section {
-      min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -59,7 +62,7 @@
       margin-right: calc(-10vw + 10%);
       padding-top: 3rem;
       padding-bottom: 3rem;
-      background: rgba(255,255,255,0.85);
+      background: #fff;
       border-radius: 18px;
       box-shadow: 0 2px 24px rgba(44, 62, 80, 0.08);
       margin-bottom: 2rem;
@@ -71,6 +74,10 @@
       margin-bottom: 2rem;
       letter-spacing: 1px;
       text-align: center;
+      text-shadow: 0 2px 8px #fff, 0 1px 2px #e0eafc;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: normal;
     }
     .card {
       border-radius: 14px;
@@ -84,20 +91,24 @@
       box-shadow: 0 8px 32px rgba(44, 62, 80, 0.18);
     }
     .card-title {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: #414345;
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: #232526;
       margin-bottom: 0.5rem;
       text-align: center;
     }
     .card-img-top {
       border-radius: 12px 12px 0 0;
-      box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
-      background: #e0eafc;
+      box-shadow: 0 2px 8px rgba(44, 62, 80, 0.12);
+      background: linear-gradient(120deg, #e0eafc 0%, #f8fafc 100%);
       padding: 0.5rem;
       object-fit: contain;
       height: 180px;
       width: 100%;
+      transition: background 0.3s;
+    }
+    .card:hover .card-img-top {
+      background: linear-gradient(120deg, #f8fafc 0%, #e0eafc 100%);
     }
     .list-group-item {
       background: #f6f8fa;
@@ -167,97 +178,88 @@
         height: 80px;
       }
     }
+    .section-highlight {
+      animation: highlightSection 3s;
+    }
+    @keyframes highlightSection {
+      0% { box-shadow: 0 0 0 0 #facf0f; }
+      40% { box-shadow: 0 0 32px 8px #facf0f; }
+      100% { box-shadow: 0 0 0 0 #facf0f; }
+    }
+    .skill-tooltip {
+      background: #facf0f;
+      color: #232526 !important;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px #facf0f;
+      padding: 0.2rem 0.7rem;
+      font-size: 1.15rem !important;
+      transition: background 0.2s, color 0.2s;
+    }
   </style>
 </head>
 <body class="bg-light">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-    <div class="container">
-      <a class="navbar-brand" href="#">Aniket Shahane</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-          <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
-          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-          <li class="nav-item"><a class="nav-link" href="#publications">Publications</a></li>
-          <li class="nav-item"><a class="nav-link" href="#trainings">Trainings</a></li>
-          <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
-        </ul>
-      </div>
+  <nav class="navbar navbar-light minimal-nav sticky-top" style="background: #fff; box-shadow: 0 2px 12px rgba(44,62,80,0.07); border-radius: 16px; margin: 1.5rem 2vw; padding: 0.7rem 2vw;">
+    <div class="container d-flex justify-content-between align-items-center">
+      <a class="navbar-brand fw-bold" style="font-size:2rem; color:#232526; letter-spacing:2px; font-family:'Montserrat',sans-serif;" href="#">Aniket Shahane</a>
+      <ul class="nav nav-pills gap-2">
+        <li class="nav-item"><a class="nav-link minimal-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link minimal-link" href="#experience">Experience</a></li>
+        <li class="nav-item"><a class="nav-link minimal-link" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link minimal-link" href="#skills">Skills</a></li>
+        <li class="nav-item"><a class="nav-link minimal-link" href="#education">Education</a></li>
+      </ul>
     </div>
   </nav>
 
-  <header class="container py-5 text-center">
-    <h1 class="display-4 fw-bold">Hey, I'm</h1>
-    <h2 class="display-5 heading-primary">Aniket Sunil Shahane</h2>
-    <hr>
-    <p class="lead">Innovative Software Developer specializing in Angular, .Net Core, and SQL,<br>creating efficient solutions for enhanced user experiences.</p>
+  <header class="container py-5 text-center profile-header">
+    <div class="profile-prominent d-flex flex-column align-items-center py-4">
+      <img src="Images/user.png" alt="Aniket Shahane" class="profile-avatar shadow-lg mb-4" style="width:180px;height:180px;border-radius:50%;object-fit:cover;border:6px solid #fff;box-shadow:0 8px 32px rgba(44,62,80,0.12);">
+      <h1 class="fw-bold mb-2" style="font-size:2.8rem;letter-spacing:2px;font-family:'Montserrat',sans-serif;">Aniket Sunil Shahane</h1>
+      <div class="mb-2 text-muted" style="font-size:1.2rem;">
+        <span class="me-2"><img src="https://cdn.wallofportfolios.in/production/images/location.57fea50af63b.svg" style="width:18px;vertical-align:middle;">Pune, Maharashtra, India</span>
+        <span class="badge bg-primary ms-2" style="font-size:1rem;">Technical Lead</span>
+      </div>
+      <div class="mb-3" style="font-size:1.15rem; color:#485563; font-family:'Roboto',sans-serif;">Full-Stack & Cloud Developer skilled in Angular, Blazor, .NET Core, SQL, MongoDB, and AI solutions.</div>
+      <div class="d-flex gap-3 mb-2">
+        <a href="mailto:mr.aniketshahane@gmail.com" class="btn btn-primary rounded-pill profile-btn" style="font-size:1.1rem;min-width:120px;">Contact</a>
+        <a href="https://www.linkedin.com/in/mraniketshahane" target="_blank" class="btn btn-outline-dark rounded-pill profile-btn" style="font-size:1.1rem;min-width:120px;">LinkedIn</a>
+      </div>
+    </div>
   </header>
 
-  <section id="education" class="container mb-5">
-    <h2 class="mb-4">Education</h2>
-    <div class="table-responsive">
-      <table class="table table-bordered align-middle">
-        <thead class="table-dark">
-          <tr>
-            <th>Course / Exam</th>
-            <th>Institute / School</th>
-            <th>Year of Passing</th>
-            <th>Result</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Master of Technology (Computer Science and Engineering)</td>
-            <td>Vishwakarma Institute of Technology(Autonomous), Savitribai Phule Pune University</td>
-            <td>2019</td>
-            <td>CGPA 8.6</td>
-          </tr>
-          <tr>
-            <td>Bachelor of Engineering (Information Technology)</td>
-            <td>Jayawantrao Sawant College of Engineering, Savitribai Phule Pune University</td>
-            <td>2016</td>
-            <td>67.93</td>
-          </tr>
-          <tr>
-            <td>Diploma (Computer Technology)</td>
-            <td>P. Dr. V. V. P. Institute of Technology & Engineering (Polytechnic), Maharashtra State Board of Technical Education</td>
-            <td>2013</td>
-            <td>68.90</td>
-          </tr>
-          <tr>
-            <td>S.S.C (Secondary School Certificate)</td>
-            <td>Shri Ambika Vidyalaya, Kedgaon Maharashtra State Board of S.S.C</td>
-            <td>2009</td>
-            <td>75.69</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
   <section id="experience" class="container mb-5">
-    <h2 class="mb-4">Experience</h2>
-    <div class="row g-4">
-      <div class="col-md-6">
-        <div class="card h-100">
-          <div class="card-body text-center">
-            <h3 class="card-title">V10x Technologies</h3>
-            <p>25th May 2018 – 25th May 2019</p>
-            <p>(1 year)</p>
+    <h2 class="mb-4" style="font-family:'Montserrat',sans-serif;font-size:2rem;">Experience</h2>
+    <div class="mt-4 mb-5 text-center">
+      <h4 class="mb-3" style="font-family:'Roboto',sans-serif;">Total Experience</h4>
+      <div class="row justify-content-center" id="countdown">
+        <div class="col-auto"><span id="years" class="display-6 fw-bold"></span><div>Years</div></div>
+        <div class="col-auto"><span id="months" class="display-6 fw-bold"></span><div>Months</div></div>
+        <div class="col-auto"><span id="days" class="display-6 fw-bold"></span><div>Days</div></div>
+        <div class="col-auto"><span id="hours" class="display-6 fw-bold"></span><div>Hours</div></div>
+        <div class="col-auto"><span id="minutes" class="display-6 fw-bold"></span><div>Minutes</div></div>
+        <div class="col-auto"><span id="seconds" class="display-6 fw-bold"></span><div>Seconds</div></div>
+      </div>
+    </div>
+    <div class="row g-5 justify-content-center">
+      <div class="col-md-5">
+        <div class="card h-100 text-center minimal-card" style="background:#fff;box-shadow:0 2px 16px rgba(44,62,80,0.08);border-radius:16px;">
+          <div class="d-flex flex-column align-items-center py-4">
+            <img src="Images/prosot-png.png" alt="Prosot India Pvt Ltd" style="width:64px;height:64px;object-fit:contain;margin-bottom:1rem;">
+            <h3 class="card-title mb-1" style="font-size:1.3rem;font-family:'Montserrat',sans-serif;">Prosot India Pvt Ltd</h3>
+            <span class="text-muted mb-1" style="font-size:1rem;">1st June 2019 – Present</span>
+            <span class="badge bg-primary mb-2" style="font-size:1rem;">Current</span>
+            <span class="fw-bold" style="font-size:1.1rem;">(<span id="yearsinprosot">6+</span> years)</span>
           </div>
         </div>
       </div>
-      <div class="col-md-6">
-        <div class="card h-100">
-          <div class="card-body text-center">
-            <h3 class="card-title">Prosot India Pvt Ltd</h3>
-            <p>1st June 2019 – Present</p>
-            <p>(<span id="yearsinprosot">6+</span> years)</p>
+      <div class="col-md-5">
+        <div class="card h-100 text-center minimal-card" style="background:#fff;box-shadow:0 2px 16px rgba(44,62,80,0.08);border-radius:16px;">
+          <div class="d-flex flex-column align-items-center py-4">
+            <img src="Images/v10x.png" alt="V10x Technologies" style="width:64px;height:64px;object-fit:contain;margin-bottom:1rem;">
+            <h3 class="card-title mb-1" style="font-size:1.3rem;font-family:'Montserrat',sans-serif;">V10x Technologies</h3>
+            <span class="text-muted mb-1" style="font-size:1rem;">25th May 2018 – 25th May 2019</span>
+            <span class="badge bg-secondary mb-2" style="font-size:1rem;">Past</span>
+            <span class="fw-bold" style="font-size:1.1rem;">(1 year)</span>
           </div>
         </div>
       </div>
@@ -269,7 +271,7 @@
     <div class="row g-4">
       <div class="col-12 col-md-6 col-lg-4">
         <div class="card h-100">
-          <img src="Images/arytic.png" class="card-img-top" alt="Arytic">
+          <img src="Images/arytic.png" class="card-img-top" alt="Arytic" style="background:linear-gradient(135deg,#e0eafc 0%,#bfc8d8 100%); border-radius:16px 16px 0 0;">
           <div class="card-body">
             <h5 class="card-title">Arytic</h5>
           </div>
@@ -277,7 +279,7 @@
       </div>
       <div class="col-12 col-md-6 col-lg-4">
         <div class="card h-100">
-          <img src="Images/clocker.png" class="card-img-top" alt="Clocr">
+          <img src="Images/clocker.png" class="card-img-top" alt="Clocr" style="background:linear-gradient(135deg,#e0eafc 0%,#bfc8d8 100%); border-radius:16px 16px 0 0;">
           <div class="card-body">
             <h5 class="card-title">Clocr</h5>
           </div>
@@ -285,7 +287,7 @@
       </div>
       <div class="col-12 col-md-6 col-lg-4">
         <div class="card h-100">
-          <img src="Images/mvs.png" class="card-img-top" alt="MVS360">
+          <img src="Images/mvs.png" class="card-img-top" alt="MVS360" style="background:linear-gradient(135deg,#e0eafc 0%,#bfc8d8 100%); border-radius:16px 16px 0 0;">
           <div class="card-body">
             <h5 class="card-title">MVS360</h5>
           </div>
@@ -293,7 +295,7 @@
       </div>
       <div class="col-12 col-md-6 col-lg-4">
         <div class="card h-100">
-          <img src="Images/dymax.png" class="card-img-top" alt="Dymax">
+          <img src="Images/dymax.png" class="card-img-top" alt="Dymax" style="background:linear-gradient(135deg,#e0eafc 0%,#bfc8d8 100%); border-radius:16px 16px 0 0;">
           <div class="card-body">
             <h5 class="card-title">Dymax</h5>
           </div>
@@ -301,7 +303,7 @@
       </div>
       <div class="col-12 col-md-6 col-lg-4">
         <div class="card h-100">
-          <img src="Images/newIndi.png" class="card-img-top" alt="New Indi">
+          <img src="Images/newIndi.png" class="card-img-top" alt="New Indi" style="background:linear-gradient(135deg,#e0eafc 0%,#bfc8d8 100%); border-radius:16px 16px 0 0;">
           <div class="card-body">
             <h5 class="card-title">New Indi</h5>
           </div>
@@ -309,7 +311,7 @@
       </div>
       <div class="col-12 col-md-6 col-lg-4">
         <div class="card h-100">
-          <img src="Images/Tel.png" class="card-img-top" alt="Tokyo Electron">
+          <img src="Images/Tel.png" class="card-img-top" alt="Tokyo Electron" style="background:linear-gradient(135deg,#e0eafc 0%,#bfc8d8 100%); border-radius:16px 16px 0 0;">
           <div class="card-body">
             <h5 class="card-title">Tokyo Electron</h5>
           </div>
@@ -317,7 +319,7 @@
       </div>
       <div class="col-12 col-md-6 col-lg-4">
         <div class="card h-100">
-          <img src="Images/dfw.png" class="card-img-top" alt="DFW Land">
+          <img src="Images/dfw.png" class="card-img-top" alt="DFW Land" style="background:linear-gradient(135deg,#e0eafc 0%,#bfc8d8 100%); border-radius:16px 16px 0 0;">
           <div class="card-body">
             <h5 class="card-title">DFW Land</h5>
           </div>
@@ -325,7 +327,7 @@
       </div>
       <div class="col-12 col-md-6 col-lg-4">
         <div class="card h-100">
-          <img src="Images/mtmotel.png" class="card-img-top" alt="My Motel">
+          <img src="Images/mtmotel.png" class="card-img-top" alt="My Motel" style="background:linear-gradient(135deg,#e0eafc 0%,#bfc8d8 100%); border-radius:16px 16px 0 0;">
           <div class="card-body">
             <h5 class="card-title">My Motel</h5>
           </div>
@@ -333,7 +335,7 @@
       </div>
       <div class="col-12 col-md-6 col-lg-4">
         <div class="card h-100">
-          <img src="Images/halo.png" class="card-img-top" alt="Halo Program">
+          <img src="Images/halo.png" class="card-img-top" alt="Halo Program" style="background:linear-gradient(135deg,#e0eafc 0%,#bfc8d8 100%); border-radius:16px 16px 0 0;">
           <div class="card-body">
             <h5 class="card-title">Halo Program</h5>
           </div>
@@ -341,7 +343,7 @@
       </div>
       <div class="col-12 col-md-6 col-lg-4">
         <div class="card h-100">
-          <img src="Images/AutoCodeGen.png" class="card-img-top" alt="Auto Code Gen">
+          <img src="Images/AutoCodeGen.png" class="card-img-top" alt="Auto Code Gen" style="background:linear-gradient(135deg,#e0eafc 0%,#bfc8d8 100%); border-radius:16px 16px 0 0;">
           <div class="card-body">
             <h5 class="card-title">Auto Code Gen</h5>
           </div>
@@ -352,92 +354,176 @@
 
   <section id="skills" class="container mb-5 skills-section">
     <h2 class="mb-4">Skills</h2>
-    <div class="row g-4">
+    <div class="row g-4 justify-content-center">
       <div class="col-6 col-md-2 text-center">
-        <img src="Images/C_Programming_Language.svg" alt="C" class="mb-2" style="max-width:80px;">
-        <div>C</div>
+        <div class="p-3 rounded shadow-lg" style="background: linear-gradient(120deg, #e0eafc 0%, #f8fafc 100%);">
+          <img src="Images/C_Programming_Language.svg" alt="C" class="mb-2" style="max-width:60px;">
+          <div class="fw-bold text-primary" style="font-size:1.1rem;">C</div>
+        </div>
       </div>
       <div class="col-6 col-md-2 text-center">
-        <img src="Images/c++.png" alt="C++" class="mb-2" style="max-width:80px;">
-        <div>C++</div>
+        <div class="p-3 rounded shadow-lg" style="background: linear-gradient(120deg, #e0eafc 0%, #f8fafc 100%);">
+          <img src="Images/c++.png" alt="C++" class="mb-2" style="max-width:60px;">
+          <div class="fw-bold text-primary" style="font-size:1.1rem;">C++</div>
+        </div>
       </div>
       <div class="col-6 col-md-2 text-center">
-        <img src="Images/Blazor.png" alt="Blazor" class="mb-2" style="max-width:80px;">
-        <div>Blazor</div>
+        <div class="p-3 rounded shadow-lg" style="background: linear-gradient(120deg, #e0eafc 0%, #f8fafc 100%);">
+          <img src="Images/Blazor.png" alt="Blazor" class="mb-2" style="max-width:60px;">
+          <div class="fw-bold text-primary" style="font-size:1.1rem;">Blazor</div>
+        </div>
       </div>
       <div class="col-6 col-md-2 text-center">
-        <img src="Images/CSharp.png" alt="C#" class="mb-2" style="max-width:80px;">
-        <div>C#</div>
+        <div class="p-3 rounded shadow-lg" style="background: linear-gradient(120deg, #e0eafc 0%, #f8fafc 100%);">
+          <img src="Images/CSharp.png" alt="C#" class="mb-2" style="max-width:60px;">
+          <div class="fw-bold text-primary" style="font-size:1.1rem;">C#</div>
+        </div>
       </div>
       <div class="col-6 col-md-2 text-center">
-        <img src="Images/NET_Core_Logo.svg.png" alt=".Net Core" class="mb-2" style="max-width:80px;">
-        <div>.Net Core</div>
+        <div class="p-3 rounded shadow-lg" style="background: linear-gradient(120deg, #e0eafc 0%, #f8fafc 100%);">
+          <img src="Images/NET_Core_Logo.svg.png" alt=".Net Core" class="mb-2" style="max-width:60px;">
+          <div class="fw-bold text-primary" style="font-size:1.1rem;">.Net Core</div>
+        </div>
       </div>
       <div class="col-6 col-md-2 text-center">
-        <img src="Images/angular.png" alt="Angular" class="mb-2" style="max-width:80px;">
-        <div>Angular</div>
+        <div class="p-3 rounded shadow-lg" style="background: linear-gradient(120deg, #e0eafc 0%, #f8fafc 100%);">
+          <img src="Images/angular.png" alt="Angular" class="mb-2" style="max-width:60px;">
+          <div class="fw-bold text-primary" style="font-size:1.1rem;">Angular</div>
+        </div>
       </div>
       <div class="col-6 col-md-2 text-center">
-        <img src="Images/azure.png" alt="Azure" class="mb-2" style="max-width:80px;">
-        <div>Azure</div>
+        <div class="p-3 rounded shadow-lg" style="background: linear-gradient(120deg, #e0eafc 0%, #f8fafc 100%);">
+          <img src="Images/azure.png" alt="Azure" class="mb-2" style="max-width:60px;">
+          <div class="fw-bold text-primary" style="font-size:1.1rem;">Azure</div>
+        </div>
       </div>
       <div class="col-6 col-md-2 text-center">
-        <img src="Images/R.png" alt="R" class="mb-2" style="max-width:80px;">
-        <div>R</div>
+        <div class="p-3 rounded shadow-lg" style="background: linear-gradient(120deg, #e0eafc 0%, #f8fafc 100%);">
+          <img src="Images/R.png" alt="R" class="mb-2" style="max-width:60px;">
+          <div class="fw-bold text-primary" style="font-size:1.1rem;">R</div>
+        </div>
       </div>
       <div class="col-6 col-md-2 text-center">
-        <img src="Images/python.svg" alt="Python" class="mb-2" style="max-width:80px;">
-        <div>Python</div>
+        <div class="p-3 rounded shadow-lg" style="background: linear-gradient(120deg, #e0eafc 0%, #f8fafc 100%);">
+          <img src="Images/python.svg" alt="Python" class="mb-2" style="max-width:60px;">
+          <div class="fw-bold text-primary" style="font-size:1.1rem;">Python</div>
+        </div>
       </div>
       <div class="col-6 col-md-2 text-center">
-        <img src="Images/mysql.png" alt="MySQL" class="mb-2" style="max-width:80px;">
-        <div>MySQL</div>
+        <div class="p-3 rounded shadow-lg" style="background: linear-gradient(120deg, #e0eafc 0%, #f8fafc 100%);">
+          <img src="Images/mysql.png" alt="MySQL" class="mb-2" style="max-width:60px;">
+          <div class="fw-bold text-primary" style="font-size:1.1rem;">MySQL</div>
+        </div>
       </div>
       <div class="col-6 col-md-2 text-center">
-        <img src="Images/sql.svg" alt="SQL" class="mb-2" style="max-width:80px;">
-        <div>SQL</div>
+        <div class="p-3 rounded shadow-lg" style="background: linear-gradient(120deg, #e0eafc 0%, #f8fafc 100%);">
+          <img src="Images/sql.svg" alt="SQL" class="mb-2" style="max-width:60px;">
+          <div class="fw-bold text-primary" style="font-size:1.1rem;">SQL</div>
+        </div>
       </div>
       <div class="col-6 col-md-2 text-center">
-        <img src="Images/mongo.png" alt="MongoDB" class="mb-2" style="max-width:80px;">
-        <div>MongoDB</div>
+        <div class="p-3 rounded shadow-lg" style="background: linear-gradient(120deg, #e0eafc 0%, #f8fafc 100%);">
+          <img src="Images/mongo.png" alt="MongoDB" class="mb-2" style="max-width:60px;">
+          <div class="fw-bold text-primary" style="font-size:1.1rem;">MongoDB</div>
+        </div>
       </div>
       <div class="col-6 col-md-2 text-center">
-        <img src="Images/rest.png" alt="REST web services" class="mb-2" style="max-width:80px;">
-        <div>REST</div>
+        <div class="p-3 rounded shadow-lg" style="background: linear-gradient(120deg, #e0eafc 0%, #f8fafc 100%);">
+          <img src="Images/rest.png" alt="REST web services" class="mb-2" style="max-width:60px;">
+          <div class="fw-bold text-primary" style="font-size:1.1rem;">REST</div>
+        </div>
       </div>
       <div class="col-6 col-md-2 text-center">
-        <img src="Images/git.png" alt="Git" class="mb-2" style="max-width:80px;">
-        <div>Git</div>
+        <div class="p-3 rounded shadow-lg" style="background: linear-gradient(120deg, #e0eafc 0%, #f8fafc 100%);">
+          <img src="Images/git.png" alt="Git" class="mb-2" style="max-width:60px;">
+          <div class="fw-bold text-primary" style="font-size:1.1rem;">Git</div>
+        </div>
       </div>
       <div class="col-6 col-md-2 text-center">
-        <img src="Images/html.png" alt="HTML" class="mb-2" style="max-width:80px;">
-        <div>HTML</div>
+        <div class="p-3 rounded shadow-lg" style="background: linear-gradient(120deg, #e0eafc 0%, #f8fafc 100%);">
+          <img src="Images/html.png" alt="HTML" class="mb-2" style="max-width:60px;">
+          <div class="fw-bold text-primary" style="font-size:1.1rem;">HTML</div>
+        </div>
       </div>
       <div class="col-6 col-md-2 text-center">
-        <img src="Images/css.svg" alt="CSS" class="mb-2" style="max-width:80px;">
-        <div>CSS</div>
+        <div class="p-3 rounded shadow-lg" style="background: linear-gradient(120deg, #e0eafc 0%, #f8fafc 100%);">
+          <img src="Images/css.svg" alt="CSS" class="mb-2" style="max-width:60px;">
+          <div class="fw-bold text-primary" style="font-size:1.1rem;">CSS</div>
+        </div>
       </div>
       <div class="col-6 col-md-2 text-center">
-        <img src="Images/bootstrap.svg" alt="Bootstrap" class="mb-2" style="max-width:80px;">
-        <div>Bootstrap</div>
+        <div class="p-3 rounded shadow-lg" style="background: linear-gradient(120deg, #e0eafc 0%, #f8fafc 100%);">
+          <img src="Images/bootstrap.svg" alt="Bootstrap" class="mb-2" style="max-width:60px;">
+          <div class="fw-bold text-primary" style="font-size:1.1rem;">Bootstrap</div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="publications" class="container mb-5">
-    <h2 class="mb-4">Publications</h2>
-    <ul class="list-group">
-      <li class="list-group-item">Research Paper on Meta Search Engine for Traveler (IJRISE)</li>
-      <li class="list-group-item">Implementation Paper on Meta Search Engine for Traveler (ICRTCIT)</li>
-    </ul>
-  </section>
-
-  <section id="trainings" class="container mb-5">
-    <h2 class="mb-4">Trainings</h2>
-    <ul class="list-group">
-      <li class="list-group-item">Emerging trends in IT – Java, Servlet, PHP, MongoDB, Hadoop</li>
-      <li class="list-group-item">Advance techniques to write and present research paper</li>
-    </ul>
+  <section id="education" class="container mb-5">
+    <h2 class="mb-4">Education</h2>
+    <div class="row justify-content-center g-4">
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 text-center border-0 shadow-lg bg-gradient" style="background: linear-gradient(135deg, #f6d365 0%, #fda085 100%); color: #232526;">
+          <div class="card-body">
+            <div class="mb-3">
+              <span class="fa fa-graduation-cap fa-2x text-primary"></span>
+            </div>
+            <h5 class="card-title text-primary" style="font-size:1.3rem; font-weight:900; text-shadow: 0 2px 8px #fff, 0 1px 2px #facf0f; letter-spacing:1px; overflow:hidden; text-overflow:ellipsis; white-space:normal;">Master of Technology</h5>
+            <p class="fw-bold mb-1">Computer Science and Engineering</p>
+            <p class="mb-1">Vishwakarma Institute of Technology (Autonomous)</p>
+            <p class="mb-1">Savitribai Phule Pune University</p>
+            <span class="badge bg-success mb-2">2019</span>
+            <div class="text-warning fw-bold">CGPA 8.6</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 text-center border-0 shadow-lg bg-gradient" style="background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%); color: #232526;">
+          <div class="card-body">
+            <div class="mb-3">
+              <span class="fa fa-university fa-2x text-primary"></span>
+            </div>
+            <h5 class="card-title text-primary" style="font-size:1.3rem; font-weight:900; text-shadow: 0 2px 8px #fff, 0 1px 2px #a6c1ee; letter-spacing:1px; overflow:hidden; text-overflow:ellipsis; white-space:normal;">Bachelor of Engineering</h5>
+            <p class="fw-bold mb-1">Information Technology</p>
+            <p class="mb-1">Jayawantrao Sawant College of Engineering</p>
+            <p class="mb-1">Savitribai Phule Pune University</p>
+            <span class="badge bg-success mb-2">2016</span>
+            <div class="text-warning fw-bold">67.93%</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 text-center border-0 shadow-lg bg-gradient" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); color: #232526;">
+          <div class="card-body">
+            <div class="mb-3">
+              <span class="fa fa-certificate fa-2x text-primary"></span>
+            </div>
+            <h5 class="card-title text-primary" style="font-size:1.3rem; font-weight:900; text-shadow: 0 2px 8px #fff, 0 1px 2px #fed6e3; letter-spacing:1px; overflow:hidden; text-overflow:ellipsis; white-space:normal;">Diploma</h5>
+            <p class="fw-bold mb-1">Computer Technology</p>
+            <p class="mb-1">P. Dr. V. V. P. Institute of Technology & Engineering (Polytechnic)</p>
+            <p class="mb-1">Maharashtra State Board of Technical Education</p>
+            <span class="badge bg-success mb-2">2013</span>
+            <div class="text-warning fw-bold">68.90%</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 text-center border-0 shadow-lg bg-gradient" style="background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%); color: #232526;">
+          <div class="card-body">
+            <div class="mb-3">
+              <span class="fa fa-book fa-2x text-primary"></span>
+            </div>
+            <h5 class="card-title text-primary" style="font-size:1.3rem; font-weight:900; text-shadow: 0 2px 8px #fff, 0 1px 2px #fbc2eb; letter-spacing:1px; overflow:hidden; text-overflow:ellipsis; white-space:normal;">S.S.C</h5>
+            <p class="fw-bold mb-1">Secondary School Certificate</p>
+            <p class="mb-1">Shri Ambika Vidyalaya</p>
+            <p class="mb-1">Kedgaon Maharashtra State Board of S.S.C</p>
+            <span class="badge bg-success mb-2">2009</span>
+            <div class="text-warning fw-bold">75.69%</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section id="certifications" class="container mb-5">
@@ -452,19 +538,33 @@
     </ul>
   </section>
 
+  <section id="trainings" class="container mb-5">
+    <h2 class="mb-4">Trainings</h2>
+    <ul class="list-group">
+      <li class="list-group-item">Emerging trends in IT – Java, Servlet, PHP, MongoDB, Hadoop</li>
+      <li class="list-group-item">Advance techniques to write and present research paper</li>
+    </ul>
+  </section>
+
+  <section id="publications" class="container mb-5">
+    <h2 class="mb-4">Publications</h2>
+    <ul class="list-group">
+      <li class="list-group-item">Research Paper on Meta Search Engine for Traveler (IJRISE)</li>
+      <li class="list-group-item">Implementation Paper on Meta Search Engine for Traveler (ICRTCIT)</li>
+    </ul>
+  </section>
+
   <section id="about" class="container mb-5 about-section">
     <h2 class="mb-4">About Me</h2>
     <div class="row g-4 align-items-center">
       <div class="col-md-6">
-        <p class="lead">Hello, I'm <b>Aniket Sunil Shahane</b>. I have a passion for software development and enjoy working on various projects. I strive to create efficient and maintainable solutions that meet business objectives and client needs.</p>
-        <p>If you'd like to get in touch or discuss potential collaborations, feel free to contact me using the details below:</p>
-        <ul class="list-unstyled">
-          <li><strong>Name:</strong> Aniket Sunil Shahane</li>
-          <li><strong>Address:</strong> 72-B, Bhushan-Nagar, Ahmednagar</li>
-          <li><strong>Phone:</strong> +91 9404142462</li>
-          <li><strong>Email:</strong> mr.aniketshahane@gmail.com</li>
-          <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/mraniketshahane" target="_blank">www.linkedin.com/in/mraniketshahane</a></li>
-        </ul>
+          <p class="lead">Hello, I'm <b>Aniket Shahane</b>, a Technical Lead with 7 years of experience in architecting and developing scalable, high-performance applications. My expertise includes Angular, Blazor, .NET Core, SQL, MongoDB, WebAPI, Microservices, Cloud Solutions, and AI.</p>
+          <p>I am passionate about leveraging cutting-edge technologies to solve complex challenges and drive digital transformation. I thrive in dynamic environments where I can lead teams, mentor developers, and deliver innovative solutions that fuel business success.</p>
+          <div class="contact-details mt-4" style="font-size:1rem; color:#485563; background:#f8fafc; border-radius:10px; box-shadow:0 2px 8px rgba(44,62,80,0.07); padding:1rem 1.5rem;">
+            <div class="mb-2"><span class="fw-bold" style="color:#232526;">Email:</span> <a href="mailto:mr.aniketshahane@gmail.com" style="color:#485563; text-decoration:none;">mr.aniketshahane@gmail.com</a></div>
+            <div class="mb-2"><span class="fw-bold" style="color:#232526;">LinkedIn:</span> <a href="https://www.linkedin.com/in/aniketshahane" target="_blank" style="color:#485563; text-decoration:none;">aniketshahane</a></div>
+            <div class="mb-2"><span class="fw-bold" style="color:#232526;">Location:</span> Pune, Maharashtra, India</div>
+          </div>
       </div>
       <div class="col-md-6 text-center">
         <img src="Images/user.png" alt="Aniket Shahane" class="img-fluid rounded shadow" style="max-width:300px;">
@@ -473,5 +573,144 @@
   </section>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Experience Timer Script
+    var startDate = new Date("May 25, 2018").getTime();
+    var pauseDate = new Date("May 25, 2019").getTime();
+    var resumeDate = new Date("June 1, 2019").getTime();
+    setInterval(function () {
+      var now = new Date().getTime();
+        var difference;
+      if (now < pauseDate) {
+        difference = now - startDate;
+      } else {
+      difference = (pauseDate - startDate) + (now - resumeDate);
+      }
+      var years = Math.floor(difference / (1000 * 60 * 60 * 24 * 365));
+      var months = Math.floor((difference % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
+      var days = Math.floor((difference % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((difference % (1000 * 60)) / 1000);
+      document.getElementById("years").textContent = years;
+      document.getElementById("yearsinprosot").textContent = years-1+"."+months;
+      document.getElementById("months").textContent = months;
+      document.getElementById("days").textContent = days;
+      document.getElementById("hours").textContent = hours;
+      document.getElementById("minutes").textContent = minutes;
+      document.getElementById("seconds").textContent = seconds;
+    }, 1000);
+  </script>
+  <script>
+    // Custom animated scroll for navbar links
+    document.addEventListener('DOMContentLoaded', function() {
+      // Animated scroll and highlight
+      document.querySelectorAll('.navbar-nav .nav-link').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+          var href = link.getAttribute('href');
+          if (href && href.startsWith('#')) {
+            var target = document.querySelector(href);
+            if (target) {
+              e.preventDefault();
+              var top = target.getBoundingClientRect().top + window.pageYOffset - 80;
+              window.scrollTo({
+                top: top,
+                behavior: 'smooth'
+              });
+              target.classList.add('section-highlight');
+              setTimeout(function() {
+                target.classList.remove('section-highlight');
+              }, 700);
+            }
+          }
+        });
+      });
+      
+      // Smooth scroll animation function
+      function animateScroll(start, end, duration) {
+        var startTime = null;
+        function easeInOutExpo(t, b, c, d) {
+          if (t === 0) return b;
+          if (t === d) return b + c;
+          if ((t /= d / 2) < 1) return c / 2 * Math.pow(2, 10 * (t - 1)) + b;
+          return c / 2 * (-Math.pow(2, -10 * --t) + 2) + b;
+        }
+        function scrollStep(timestamp) {
+          if (!startTime) startTime = timestamp;
+          var elapsed = timestamp - startTime;
+          var next = easeInOutExpo(elapsed, start, end - start, duration);
+          window.scrollTo(0, next);
+          if (elapsed < duration) {
+            window.requestAnimationFrame(scrollStep);
+          } else {
+            window.scrollTo(0, end);
+          }
+        }
+        window.requestAnimationFrame(scrollStep);
+      }
+
+      // Card hover effect: pop and subtle glow
+      document.querySelectorAll('.card').forEach(function(card) {
+        card.addEventListener('mouseenter', function() {
+          card.style.transform = 'scale(1.03)';
+          card.style.boxShadow = '0 4px 16px 0 #facf0f';
+        });
+        card.addEventListener('mouseleave', function() {
+          card.style.transform = '';
+          card.style.boxShadow = '';
+        });
+      });
+
+      // Skills: show tooltip on hover
+      document.querySelectorAll('.skills-section .col-md-2, .skills-section .col-6').forEach(function(skill) {
+        skill.addEventListener('mouseenter', function() {
+          var name = skill.querySelector('div');
+          if (name) {
+            name.classList.add('skill-tooltip');
+          }
+        });
+        skill.addEventListener('mouseleave', function() {
+          var name = skill.querySelector('div');
+          if (name) {
+            name.classList.remove('skill-tooltip');
+          }
+        });
+      });
+
+      // About section: reveal contact info on click
+      var aboutSection = document.querySelector('.about-section');
+      if (aboutSection) {
+        var contactList = aboutSection.querySelector('.list-unstyled');
+        var revealBtn = document.createElement('button');
+        revealBtn.textContent = 'Show Contact Info';
+        revealBtn.className = 'btn btn-warning mb-3';
+        contactList.style.display = 'none';
+        aboutSection.insertBefore(revealBtn, contactList);
+        revealBtn.addEventListener('click', function() {
+          contactList.style.display = 'block';
+          revealBtn.style.display = 'none';
+        });
+      }
+    });
+  </script>
+  <style>
+    .section-highlight {
+      animation: highlightSection 0.7s;
+    }
+    @keyframes highlightSection {
+      0% { box-shadow: 0 0 0 0 #facf0f; }
+      40% { box-shadow: 0 0 32px 8px #facf0f; }
+      100% { box-shadow: 0 0 0 0 #facf0f; }
+    }
+    .skill-tooltip {
+      background: #facf0f;
+      color: #232526 !important;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px #facf0f;
+      padding: 0.2rem 0.7rem;
+      font-size: 1.15rem !important;
+      transition: background 0.2s, color 0.2s;
+    }
+  </style>
 </body>
 </html>
