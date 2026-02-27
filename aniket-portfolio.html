@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aniket Shahane Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Montserrat', 'Roboto', Arial, sans-serif;
+      background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+      color: #222;
+    }
+    .navbar {
+      box-shadow: 0 2px 12px rgba(44, 62, 80, 0.08);
+      background: linear-gradient(90deg, #232526 0%, #414345 100%);
+    }
+    .navbar-brand {
+      font-weight: 700;
+      letter-spacing: 2px;
+      font-size: 1.5rem;
+      color: #facf0f !important;
+    }
+    .navbar-nav .nav-link {
+      font-size: 1.1rem;
+      color: #fff !important;
+      margin-right: 1rem;
+      transition: color 0.2s;
+    }
+    .navbar-nav .nav-link:hover {
+      color: #facf0f !important;
+    }
+    header {
+      background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+      border-radius: 18px;
+      box-shadow: 0 4px 32px rgba(250, 207, 15, 0.12);
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      padding: 3rem 2rem;
+    }
+    .display-4, .display-5 {
+      font-family: 'Montserrat', Arial, sans-serif;
+      color: #232526;
+      font-weight: 700;
+    }
+    hr {
+      border-top: 2px solid #facf0f;
+      width: 60px;
+      margin: 1.5rem auto;
+    }
+    section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100vw;
+      margin-left: calc(-10vw + 10%);
+      margin-right: calc(-10vw + 10%);
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+      background: rgba(255,255,255,0.85);
+      border-radius: 18px;
+      box-shadow: 0 2px 24px rgba(44, 62, 80, 0.08);
+      margin-bottom: 2rem;
+    }
+    h2 {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 700;
+      color: #232526;
+      margin-bottom: 2rem;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+    .card {
+      border-radius: 14px;
+      box-shadow: 0 2px 16px rgba(44, 62, 80, 0.10);
+      border: none;
+      background: #f8fafc;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 8px 32px rgba(44, 62, 80, 0.18);
+    }
+    .card-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #414345;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    .card-img-top {
+      border-radius: 12px 12px 0 0;
+      box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+      background: #e0eafc;
+      padding: 0.5rem;
+      object-fit: contain;
+      height: 180px;
+      width: 100%;
+    }
+    .list-group-item {
+      background: #f6f8fa;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+      border: none;
+      box-shadow: 0 1px 4px rgba(44, 62, 80, 0.04);
+    }
+    .skills-section .col-md-2, .skills-section .col-6 {
+      margin-bottom: 2rem;
+    }
+    .skills-section img {
+      background: #e0eafc;
+      border-radius: 8px;
+      box-shadow: 0 1px 6px rgba(44, 62, 80, 0.08);
+      padding: 0.5rem;
+      margin-bottom: 0.5rem;
+      height: 70px;
+      object-fit: contain;
+    }
+    .skills-section div {
+      font-weight: 500;
+      color: #232526;
+      font-size: 1rem;
+    }
+    .about-section img {
+      border-radius: 50%;
+      box-shadow: 0 4px 24px rgba(44, 62, 80, 0.12);
+      margin-bottom: 1rem;
+      background: #e0eafc;
+      padding: 0.5rem;
+      height: 180px;
+      object-fit: cover;
+    }
+    @media (max-width: 900px) {
+      section {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        margin-left: 0;
+        margin-right: 0;
+      }
+      header {
+        padding: 2rem 1rem;
+      }
+      .card-img-top, .about-section img {
+        height: 120px;
+      }
+    }
+    @media (max-width: 600px) {
+      section {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        margin-left: 0;
+        margin-right: 0;
+      }
+      header {
+        padding: 1rem 0.5rem;
+      }
+      h2 {
+        font-size: 1.1rem;
+      }
+      .card-title {
+        font-size: 1rem;
+      }
+      .card-img-top, .about-section img {
+        height: 80px;
+      }
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Aniket Shahane</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#publications">Publications</a></li>
+          <li class="nav-item"><a class="nav-link" href="#trainings">Trainings</a></li>
+          <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="container py-5 text-center">
+    <h1 class="display-4 fw-bold">Hey, I'm</h1>
+    <h2 class="display-5 heading-primary">Aniket Sunil Shahane</h2>
+    <hr>
+    <p class="lead">Innovative Software Developer specializing in Angular, .Net Core, and SQL,<br>creating efficient solutions for enhanced user experiences.</p>
+  </header>
+
+  <section id="education" class="container mb-5">
+    <h2 class="mb-4">Education</h2>
+    <div class="table-responsive">
+      <table class="table table-bordered align-middle">
+        <thead class="table-dark">
+          <tr>
+            <th>Course / Exam</th>
+            <th>Institute / School</th>
+            <th>Year of Passing</th>
+            <th>Result</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Master of Technology (Computer Science and Engineering)</td>
+            <td>Vishwakarma Institute of Technology(Autonomous), Savitribai Phule Pune University</td>
+            <td>2019</td>
+            <td>CGPA 8.6</td>
+          </tr>
+          <tr>
+            <td>Bachelor of Engineering (Information Technology)</td>
+            <td>Jayawantrao Sawant College of Engineering, Savitribai Phule Pune University</td>
+            <td>2016</td>
+            <td>67.93</td>
+          </tr>
+          <tr>
+            <td>Diploma (Computer Technology)</td>
+            <td>P. Dr. V. V. P. Institute of Technology & Engineering (Polytechnic), Maharashtra State Board of Technical Education</td>
+            <td>2013</td>
+            <td>68.90</td>
+          </tr>
+          <tr>
+            <td>S.S.C (Secondary School Certificate)</td>
+            <td>Shri Ambika Vidyalaya, Kedgaon Maharashtra State Board of S.S.C</td>
+            <td>2009</td>
+            <td>75.69</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="experience" class="container mb-5">
+    <h2 class="mb-4">Experience</h2>
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="card h-100">
+          <div class="card-body text-center">
+            <h3 class="card-title">V10x Technologies</h3>
+            <p>25th May 2018 – 25th May 2019</p>
+            <p>(1 year)</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card h-100">
+          <div class="card-body text-center">
+            <h3 class="card-title">Prosot India Pvt Ltd</h3>
+            <p>1st June 2019 – Present</p>
+            <p>(<span id="yearsinprosot">6+</span> years)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="container mb-5">
+    <h2 class="mb-4">Projects</h2>
+    <div class="row g-4">
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100">
+          <img src="Images/arytic.png" class="card-img-top" alt="Arytic">
+          <div class="card-body">
+            <h5 class="card-title">Arytic</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100">
+          <img src="Images/clocker.png" class="card-img-top" alt="Clocr">
+          <div class="card-body">
+            <h5 class="card-title">Clocr</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100">
+          <img src="Images/mvs.png" class="card-img-top" alt="MVS360">
+          <div class="card-body">
+            <h5 class="card-title">MVS360</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100">
+          <img src="Images/dymax.png" class="card-img-top" alt="Dymax">
+          <div class="card-body">
+            <h5 class="card-title">Dymax</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100">
+          <img src="Images/newIndi.png" class="card-img-top" alt="New Indi">
+          <div class="card-body">
+            <h5 class="card-title">New Indi</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100">
+          <img src="Images/Tel.png" class="card-img-top" alt="Tokyo Electron">
+          <div class="card-body">
+            <h5 class="card-title">Tokyo Electron</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100">
+          <img src="Images/dfw.png" class="card-img-top" alt="DFW Land">
+          <div class="card-body">
+            <h5 class="card-title">DFW Land</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100">
+          <img src="Images/mtmotel.png" class="card-img-top" alt="My Motel">
+          <div class="card-body">
+            <h5 class="card-title">My Motel</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100">
+          <img src="Images/halo.png" class="card-img-top" alt="Halo Program">
+          <div class="card-body">
+            <h5 class="card-title">Halo Program</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100">
+          <img src="Images/AutoCodeGen.png" class="card-img-top" alt="Auto Code Gen">
+          <div class="card-body">
+            <h5 class="card-title">Auto Code Gen</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="container mb-5 skills-section">
+    <h2 class="mb-4">Skills</h2>
+    <div class="row g-4">
+      <div class="col-6 col-md-2 text-center">
+        <img src="Images/C_Programming_Language.svg" alt="C" class="mb-2" style="max-width:80px;">
+        <div>C</div>
+      </div>
+      <div class="col-6 col-md-2 text-center">
+        <img src="Images/c++.png" alt="C++" class="mb-2" style="max-width:80px;">
+        <div>C++</div>
+      </div>
+      <div class="col-6 col-md-2 text-center">
+        <img src="Images/Blazor.png" alt="Blazor" class="mb-2" style="max-width:80px;">
+        <div>Blazor</div>
+      </div>
+      <div class="col-6 col-md-2 text-center">
+        <img src="Images/CSharp.png" alt="C#" class="mb-2" style="max-width:80px;">
+        <div>C#</div>
+      </div>
+      <div class="col-6 col-md-2 text-center">
+        <img src="Images/NET_Core_Logo.svg.png" alt=".Net Core" class="mb-2" style="max-width:80px;">
+        <div>.Net Core</div>
+      </div>
+      <div class="col-6 col-md-2 text-center">
+        <img src="Images/angular.png" alt="Angular" class="mb-2" style="max-width:80px;">
+        <div>Angular</div>
+      </div>
+      <div class="col-6 col-md-2 text-center">
+        <img src="Images/azure.png" alt="Azure" class="mb-2" style="max-width:80px;">
+        <div>Azure</div>
+      </div>
+      <div class="col-6 col-md-2 text-center">
+        <img src="Images/R.png" alt="R" class="mb-2" style="max-width:80px;">
+        <div>R</div>
+      </div>
+      <div class="col-6 col-md-2 text-center">
+        <img src="Images/python.svg" alt="Python" class="mb-2" style="max-width:80px;">
+        <div>Python</div>
+      </div>
+      <div class="col-6 col-md-2 text-center">
+        <img src="Images/mysql.png" alt="MySQL" class="mb-2" style="max-width:80px;">
+        <div>MySQL</div>
+      </div>
+      <div class="col-6 col-md-2 text-center">
+        <img src="Images/sql.svg" alt="SQL" class="mb-2" style="max-width:80px;">
+        <div>SQL</div>
+      </div>
+      <div class="col-6 col-md-2 text-center">
+        <img src="Images/mongo.png" alt="MongoDB" class="mb-2" style="max-width:80px;">
+        <div>MongoDB</div>
+      </div>
+      <div class="col-6 col-md-2 text-center">
+        <img src="Images/rest.png" alt="REST web services" class="mb-2" style="max-width:80px;">
+        <div>REST</div>
+      </div>
+      <div class="col-6 col-md-2 text-center">
+        <img src="Images/git.png" alt="Git" class="mb-2" style="max-width:80px;">
+        <div>Git</div>
+      </div>
+      <div class="col-6 col-md-2 text-center">
+        <img src="Images/html.png" alt="HTML" class="mb-2" style="max-width:80px;">
+        <div>HTML</div>
+      </div>
+      <div class="col-6 col-md-2 text-center">
+        <img src="Images/css.svg" alt="CSS" class="mb-2" style="max-width:80px;">
+        <div>CSS</div>
+      </div>
+      <div class="col-6 col-md-2 text-center">
+        <img src="Images/bootstrap.svg" alt="Bootstrap" class="mb-2" style="max-width:80px;">
+        <div>Bootstrap</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="publications" class="container mb-5">
+    <h2 class="mb-4">Publications</h2>
+    <ul class="list-group">
+      <li class="list-group-item">Research Paper on Meta Search Engine for Traveler (IJRISE)</li>
+      <li class="list-group-item">Implementation Paper on Meta Search Engine for Traveler (ICRTCIT)</li>
+    </ul>
+  </section>
+
+  <section id="trainings" class="container mb-5">
+    <h2 class="mb-4">Trainings</h2>
+    <ul class="list-group">
+      <li class="list-group-item">Emerging trends in IT – Java, Servlet, PHP, MongoDB, Hadoop</li>
+      <li class="list-group-item">Advance techniques to write and present research paper</li>
+    </ul>
+  </section>
+
+  <section id="certifications" class="container mb-5">
+    <h2 class="mb-4">Certifications</h2>
+    <ul class="list-group">
+      <li class="list-group-item">ORACLE Core Java Certification - Oracle Inc. (NIIT, Pune)</li>
+      <li class="list-group-item">MongoDB Essentials - Understand the Basics of MongoDB (Online - www.udemy.com)</li>
+      <li class="list-group-item">Object Oriented Programming (Online - www.udemy.com)</li>
+      <li class="list-group-item">Object Oriented Programming in Java (Online - www.udemy.com)</li>
+      <li class="list-group-item">HTML5 and CSS3 Fundamentals (Online - www.udemy.com)</li>
+      <li class="list-group-item">Learn Angular 5 from Scratch (Online - www.udemy.com)</li>
+    </ul>
+  </section>
+
+  <section id="about" class="container mb-5 about-section">
+    <h2 class="mb-4">About Me</h2>
+    <div class="row g-4 align-items-center">
+      <div class="col-md-6">
+        <p class="lead">Hello, I'm <b>Aniket Sunil Shahane</b>. I have a passion for software development and enjoy working on various projects. I strive to create efficient and maintainable solutions that meet business objectives and client needs.</p>
+        <p>If you'd like to get in touch or discuss potential collaborations, feel free to contact me using the details below:</p>
+        <ul class="list-unstyled">
+          <li><strong>Name:</strong> Aniket Sunil Shahane</li>
+          <li><strong>Address:</strong> 72-B, Bhushan-Nagar, Ahmednagar</li>
+          <li><strong>Phone:</strong> +91 9404142462</li>
+          <li><strong>Email:</strong> mr.aniketshahane@gmail.com</li>
+          <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/mraniketshahane" target="_blank">www.linkedin.com/in/mraniketshahane</a></li>
+        </ul>
+      </div>
+      <div class="col-md-6 text-center">
+        <img src="Images/user.png" alt="Aniket Shahane" class="img-fluid rounded shadow" style="max-width:300px;">
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
