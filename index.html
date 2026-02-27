@@ -37,6 +37,27 @@
       z-index: 100;
       transition: box-shadow 0.2s, background 0.2s;
     }
+    @media (max-width: 600px) {
+      .navbar {
+        margin: 0.5rem 1vw;
+        padding: 0.2rem 1vw;
+        border-radius: 12px;
+      }
+      .navbar-brand {
+        font-size: 1.1rem !important;
+      }
+      .nav {
+        flex-wrap: wrap !important;
+        flex-direction: row !important;
+        gap: 0.2rem !important;
+        justify-content: center !important;
+      }
+      .nav-link, .nav-link.minimal-link {
+        font-size: 0.95rem !important;
+        padding: 0.3rem 0.8rem !important;
+        margin-right: 0 !important;
+      }
+    }
     .navbar-inner {
       padding: 0 2vw;
     }
