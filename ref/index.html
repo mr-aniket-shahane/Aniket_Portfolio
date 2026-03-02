@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Aniket Shahane - Senior Full-Stack Engineer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration -->
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+              heading: ['Poppins', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            },
+            colors: {
+              navy: '#0F172A',
+              blue: '#2563EB',
+              teal: '#14B8A6',
+              'soft-gray': '#F8FAFC',
+            }
+          }
+        }
+      }
+    </script>
+
+    <!-- Custom CSS -->
+    <style type="text/tailwindcss">
+      @layer base {
+        html {
+          scroll-behavior: smooth;
+        }
+        body {
+          @apply bg-soft-gray text-navy dark:bg-navy dark:text-soft-gray antialiased transition-colors duration-300;
+        }
+        h1, h2, h3, h4, h5, h6 {
+          @apply font-heading;
+        }
+      }
+      @layer utilities {
+        .animate-fade-in-up {
+          animation: fadeInUp 0.8s ease-out forwards;
+          opacity: 0;
+        }
+      }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  <link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 top-0 transition-all duration-300 bg-soft-gray/90 dark:bg-navy/90 backdrop-blur-md">
+      <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <div class="font-heading text-xl font-semibold tracking-tight">
+          AS<span class="text-blue">.</span>
+        </div>
+        <div class="hidden md:flex space-x-8 text-sm font-medium">
+          <a href="#about" class="hover:text-blue dark:hover:text-teal transition-colors">About</a>
+          <a href="#expertise" class="hover:text-blue dark:hover:text-teal transition-colors">Expertise</a>
+          <a href="#experience" class="hover:text-blue dark:hover:text-teal transition-colors">Experience</a>
+          <a href="#projects" class="hover:text-blue dark:hover:text-teal transition-colors">Projects</a>
+        </div>
+        <button id="theme-toggle" class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle Dark Mode">
+          <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+          </svg>
+          <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <main class="pt-24 pb-16 px-6 max-w-7xl mx-auto space-y-32">
+      
+      <!-- 1. Hero Section -->
+      <section id="hero" class="min-h-[80vh] flex items-center animate-fade-in-up" style="animation-delay: 0.1s">
+        <div class="grid md:grid-cols-2 gap-12 items-center w-full">
+          <div class="space-y-6">
+            <h1 class="text-5xl md:text-7xl font-heading font-semibold leading-tight tracking-tight">
+              Aniket Shahane
+            </h1>
+            <h2 class="text-xl md:text-2xl text-blue dark:text-teal font-medium">
+              Senior Full-Stack Engineer | .NET & Angular Specialist
+            </h2>
+            <p class="text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-xl">
+              I design and build scalable, production-grade web applications that power real business outcomes.
+              <br><br>
+              With 7+ years of experience delivering enterprise solutions, I specialize in architecting clean backend systems, intuitive frontends, and cloud-ready deployments.
+            </p>
+            <div class="flex flex-wrap gap-4 pt-4">
+              <a href="#projects" class="px-6 py-3 bg-blue hover:bg-blue/90 text-white font-medium rounded-lg shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
+                View Case Studies
+              </a>
+              <a href="#" class="px-6 py-3 bg-white dark:bg-slate-800 text-navy dark:text-white border border-slate-200 dark:border-slate-700 hover:border-blue dark:hover:border-teal font-medium rounded-lg shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
+                Download Resume
+              </a>
+            </div>
+          </div>
+          <div class="relative hidden md:block">
+            <div class="absolute inset-0 bg-blue/10 dark:bg-teal/10 rounded-full blur-3xl transform scale-110"></div>
+            <div class="relative aspect-[4/5] max-w-md mx-auto rounded-2xl overflow-hidden shadow-2xl border border-slate-200/50 dark:border-slate-700/50 bg-slate-200 dark:bg-slate-800">
+              <img src="https://picsum.photos/seed/aniket/800/1000" alt="Aniket Shahane" class="object-cover w-full h-full opacity-90 mix-blend-luminosity hover:mix-blend-normal transition-all duration-500" referrerpolicy="no-referrer">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. About Section -->
+      <section id="about" class="max-w-3xl animate-fade-in-up" style="animation-delay: 0.2s">
+        <h2 class="text-3xl font-heading font-semibold mb-8 flex items-center gap-4">
+          <span class="w-8 h-1 bg-blue rounded-full"></span>
+          Engineering with Purpose
+        </h2>
+        <div class="space-y-6 text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+          <p>
+            I’m a Senior Software Engineer focused on building reliable, maintainable, and scalable systems.
+          </p>
+          <p>
+            Over the past 7+ years, I have worked across enterprise applications, financial systems, and high-performance internal tools. I thrive in environments where architecture decisions matter, code quality is non-negotiable, and performance is measurable.
+          </p>
+          <p>My core strengths include:</p>
+          <ul class="list-none space-y-3 pl-4 border-l-2 border-slate-200 dark:border-slate-700">
+            <li class="flex items-center gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-teal"></span>
+              Designing clean API architectures in .NET
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-teal"></span>
+              Building responsive frontends with Angular
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-teal"></span>
+              Optimizing database performance
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-teal"></span>
+              Leading feature delivery from requirement to deployment
+            </li>
+          </ul>
+          <p class="pt-4 font-medium text-navy dark:text-white">
+            I believe great engineering balances technical precision with business clarity.
+          </p>
+        </div>
+      </section>
+
+      <!-- 3. Core Expertise -->
+      <section id="expertise" class="animate-fade-in-up" style="animation-delay: 0.3s">
+        <h2 class="text-3xl font-heading font-semibold mb-12 flex items-center gap-4">
+          <span class="w-8 h-1 bg-blue rounded-full"></span>
+          Core Expertise
+        </h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Backend -->
+          <div class="p-8 rounded-2xl bg-white dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700/50 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+            <h3 class="text-xl font-heading font-semibold mb-6 text-navy dark:text-white">Backend Engineering</h3>
+            <ul class="space-y-3 text-slate-600 dark:text-slate-400">
+              <li>.NET Core</li>
+              <li>ASP.NET Web API</li>
+              <li>RESTful Architecture</li>
+              <li>Entity Framework</li>
+            </ul>
+          </div>
+          <!-- Frontend -->
+          <div class="p-8 rounded-2xl bg-white dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700/50 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+            <h3 class="text-xl font-heading font-semibold mb-6 text-navy dark:text-white">Frontend Engineering</h3>
+            <ul class="space-y-3 text-slate-600 dark:text-slate-400">
+              <li>Angular</li>
+              <li>TypeScript</li>
+              <li>Responsive UI Architecture</li>
+              <li>Component Design</li>
+            </ul>
+          </div>
+          <!-- Databases -->
+          <div class="p-8 rounded-2xl bg-white dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700/50 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+            <h3 class="text-xl font-heading font-semibold mb-6 text-navy dark:text-white">Databases</h3>
+            <ul class="space-y-3 text-slate-600 dark:text-slate-400">
+              <li>SQL Server</li>
+              <li>MongoDB</li>
+              <li>Query Optimization</li>
+            </ul>
+          </div>
+          <!-- DevOps -->
+          <div class="p-8 rounded-2xl bg-white dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700/50 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+            <h3 class="text-xl font-heading font-semibold mb-6 text-navy dark:text-white">DevOps & Tools</h3>
+            <ul class="space-y-3 text-slate-600 dark:text-slate-400">
+              <li>Azure DevOps</li>
+              <li>CI/CD Pipelines</li>
+              <li>Git</li>
+              <li>Docker</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Experience Section -->
+      <section id="experience" class="max-w-4xl animate-fade-in-up" style="animation-delay: 0.4s">
+        <h2 class="text-3xl font-heading font-semibold mb-12 flex items-center gap-4">
+          <span class="w-8 h-1 bg-blue rounded-full"></span>
+          Experience
+        </h2>
+        <div class="space-y-12 border-l-2 border-slate-200 dark:border-slate-700 ml-3 md:ml-4">
+          
+          <!-- Current Role -->
+          <div class="relative pl-8 md:pl-12">
+            <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-blue ring-4 ring-soft-gray dark:ring-navy"></div>
+            <div class="mb-1 flex flex-col md:flex-row md:items-baseline md:justify-between gap-2">
+              <h3 class="text-xl font-heading font-semibold text-navy dark:text-white">Senior Software Engineer</h3>
+              <span class="text-sm font-medium text-blue dark:text-teal">June 2019 – Present</span>
+            </div>
+            <div class="text-slate-500 dark:text-slate-400 mb-6">Prosot India Pvt Ltd</div>
+            
+            <div class="space-y-3 text-slate-600 dark:text-slate-300 mb-6">
+              <p class="font-medium text-navy dark:text-white">Key Impact:</p>
+              <ul class="list-disc pl-5 space-y-2">
+                <li>Reduced API response time by <strong class="text-navy dark:text-white">30%</strong> through query optimization and caching strategies.</li>
+                <li>Led development of a multi-module enterprise system used by <strong class="text-navy dark:text-white">1,000+</strong> users.</li>
+                <li>Implemented CI/CD pipelines reducing deployment time by <strong class="text-navy dark:text-white">40%</strong>.</li>
+              </ul>
+            </div>
+            <div class="text-sm text-slate-500 dark:text-slate-400 font-mono bg-slate-100 dark:bg-slate-800/50 inline-block px-3 py-1.5 rounded-md">
+              Tech Used: .NET Core | Angular | SQL Server | Azure
+            </div>
+          </div>
+
+          <!-- Previous Role -->
+          <div class="relative pl-8 md:pl-12">
+            <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-300 dark:bg-slate-600 ring-4 ring-soft-gray dark:ring-navy"></div>
+            <div class="mb-1 flex flex-col md:flex-row md:items-baseline md:justify-between gap-2">
+              <h3 class="text-xl font-heading font-semibold text-navy dark:text-white">Software Engineer</h3>
+              <span class="text-sm font-medium text-slate-500 dark:text-slate-400">May 2018 – May 2019</span>
+            </div>
+            <div class="text-slate-500 dark:text-slate-400 mb-6">V10x Technologies</div>
+            
+            <div class="space-y-3 text-slate-600 dark:text-slate-300 mb-6">
+              <p class="font-medium text-navy dark:text-white">Key Impact:</p>
+              <ul class="list-disc pl-5 space-y-2">
+                <li>Developed core features for a scalable SaaS platform, increasing user retention by <strong class="text-navy dark:text-white">15%</strong>.</li>
+                <li>Migrated legacy monolithic architecture to microservices, improving system reliability.</li>
+              </ul>
+            </div>
+            <div class="text-sm text-slate-500 dark:text-slate-400 font-mono bg-slate-100 dark:bg-slate-800/50 inline-block px-3 py-1.5 rounded-md">
+              Tech Used: ASP.NET MVC | Angular | SQL Server
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 5. Featured Case Studies -->
+      <section id="projects" class="animate-fade-in-up" style="animation-delay: 0.5s">
+        <h2 class="text-3xl font-heading font-semibold mb-12 flex items-center gap-4">
+          <span class="w-8 h-1 bg-blue rounded-full"></span>
+          Featured Case Studies
+        </h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          
+          <!-- Case Study 1 -->
+          <div class="group relative bg-white dark:bg-slate-800/50 rounded-2xl p-8 border border-slate-100 dark:border-slate-700/50 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+            <div class="absolute inset-0 bg-navy/95 dark:bg-slate-900/95 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+              <button class="px-6 py-2 border border-white/30 text-white rounded-full font-medium hover:bg-white hover:text-navy transition-colors">View Details</button>
+            </div>
+            <div class="relative z-0 flex flex-col h-full">
+              <h3 class="text-2xl font-heading font-semibold mb-2 text-navy dark:text-white">Enterprise Workflow Platform</h3>
+              <p class="text-blue dark:text-teal font-medium mb-8">Automated business process management</p>
+              
+              <div class="space-y-5 text-slate-600 dark:text-slate-300 mb-8 flex-grow">
+                <div>
+                  <strong class="text-navy dark:text-white block mb-1">Challenge:</strong>
+                  Manual approval processes causing significant operational delays.
+                </div>
+                <div>
+                  <strong class="text-navy dark:text-white block mb-1">Solution:</strong>
+                  Built a modular workflow engine with role-based access and dynamic forms.
+                </div>
+                <div>
+                  <strong class="text-navy dark:text-white block mb-1">Result:</strong>
+                  Reduced approval time by 45% and eliminated paper-based tracking.
+                </div>
+              </div>
+              <div class="text-sm text-slate-500 dark:text-slate-400 font-mono pt-5 border-t border-slate-100 dark:border-slate-700/50">
+                .NET Core | Angular | SQL Server | Azure
+              </div>
+            </div>
+          </div>
+
+          <!-- Case Study 2 -->
+          <div class="group relative bg-white dark:bg-slate-800/50 rounded-2xl p-8 border border-slate-100 dark:border-slate-700/50 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+            <div class="absolute inset-0 bg-navy/95 dark:bg-slate-900/95 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+              <button class="px-6 py-2 border border-white/30 text-white rounded-full font-medium hover:bg-white hover:text-navy transition-colors">View Details</button>
+            </div>
+            <div class="relative z-0 flex flex-col h-full">
+              <h3 class="text-2xl font-heading font-semibold mb-2 text-navy dark:text-white">Financial Data Aggregator</h3>
+              <p class="text-blue dark:text-teal font-medium mb-8">Real-time financial reporting system</p>
+              
+              <div class="space-y-5 text-slate-600 dark:text-slate-300 mb-8 flex-grow">
+                <div>
+                  <strong class="text-navy dark:text-white block mb-1">Challenge:</strong>
+                  Slow data retrieval across multiple legacy databases.
+                </div>
+                <div>
+                  <strong class="text-navy dark:text-white block mb-1">Solution:</strong>
+                  Implemented a unified API gateway with Redis caching and optimized queries.
+                </div>
+                <div>
+                  <strong class="text-navy dark:text-white block mb-1">Result:</strong>
+                  Achieved sub-second response times for complex financial reports.
+                </div>
+              </div>
+              <div class="text-sm text-slate-500 dark:text-slate-400 font-mono pt-5 border-t border-slate-100 dark:border-slate-700/50">
+                ASP.NET Web API | Redis | Angular | MongoDB
+              </div>
+            </div>
+          </div>
+
+          <!-- Case Study 3 -->
+          <div class="group relative bg-white dark:bg-slate-800/50 rounded-2xl p-8 border border-slate-100 dark:border-slate-700/50 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+            <div class="absolute inset-0 bg-navy/95 dark:bg-slate-900/95 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+              <button class="px-6 py-2 border border-white/30 text-white rounded-full font-medium hover:bg-white hover:text-navy transition-colors">View Details</button>
+            </div>
+            <div class="relative z-0 flex flex-col h-full">
+              <h3 class="text-2xl font-heading font-semibold mb-2 text-navy dark:text-white">SaaS Inventory Manager</h3>
+              <p class="text-blue dark:text-teal font-medium mb-8">Multi-tenant inventory tracking</p>
+              
+              <div class="space-y-5 text-slate-600 dark:text-slate-300 mb-8 flex-grow">
+                <div>
+                  <strong class="text-navy dark:text-white block mb-1">Challenge:</strong>
+                  Scaling architecture to support rapid onboarding of new tenants.
+                </div>
+                <div>
+                  <strong class="text-navy dark:text-white block mb-1">Solution:</strong>
+                  Designed a multi-tenant database architecture with isolated schemas.
+                </div>
+                <div>
+                  <strong class="text-navy dark:text-white block mb-1">Result:</strong>
+                  Successfully onboarded 50+ new clients with zero performance degradation.
+                </div>
+              </div>
+              <div class="text-sm text-slate-500 dark:text-slate-400 font-mono pt-5 border-t border-slate-100 dark:border-slate-700/50">
+                .NET Core | Entity Framework | Angular | Azure SQL
+              </div>
+            </div>
+          </div>
+
+          <!-- Case Study 4 -->
+          <div class="group relative bg-white dark:bg-slate-800/50 rounded-2xl p-8 border border-slate-100 dark:border-slate-700/50 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+            <div class="absolute inset-0 bg-navy/95 dark:bg-slate-900/95 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+              <button class="px-6 py-2 border border-white/30 text-white rounded-full font-medium hover:bg-white hover:text-navy transition-colors">View Details</button>
+            </div>
+            <div class="relative z-0 flex flex-col h-full">
+              <h3 class="text-2xl font-heading font-semibold mb-2 text-navy dark:text-white">Internal Analytics Dashboard</h3>
+              <p class="text-blue dark:text-teal font-medium mb-8">Company-wide metric visualization</p>
+              
+              <div class="space-y-5 text-slate-600 dark:text-slate-300 mb-8 flex-grow">
+                <div>
+                  <strong class="text-navy dark:text-white block mb-1">Challenge:</strong>
+                  Fragmented data sources making business decisions difficult.
+                </div>
+                <div>
+                  <strong class="text-navy dark:text-white block mb-1">Solution:</strong>
+                  Built a centralized dashboard with real-time data synchronization.
+                </div>
+                <div>
+                  <strong class="text-navy dark:text-white block mb-1">Result:</strong>
+                  Improved executive decision-making speed by providing unified metrics.
+                </div>
+              </div>
+              <div class="text-sm text-slate-500 dark:text-slate-400 font-mono pt-5 border-t border-slate-100 dark:border-slate-700/50">
+                Angular | D3.js | .NET Web API | SQL Server
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 6. Certifications Section -->
+      <section id="certifications" class="animate-fade-in-up" style="animation-delay: 0.6s">
+        <h2 class="text-3xl font-heading font-semibold mb-12 flex items-center gap-4">
+          <span class="w-8 h-1 bg-blue rounded-full"></span>
+          Certifications
+        </h2>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="p-6 bg-white dark:bg-slate-800/50 rounded-xl border border-slate-100 dark:border-slate-700/50 flex justify-between items-center hover:shadow-md transition-shadow">
+            <div>
+              <h4 class="font-heading font-semibold text-navy dark:text-white">ORACLE Core Java Certification</h4>
+              <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Oracle Inc. (NIIT, Pune)</p>
+            </div>
+            <span class="text-sm font-mono text-slate-400 bg-slate-50 dark:bg-slate-800 px-2 py-1 rounded">2018</span>
+          </div>
+          <div class="p-6 bg-white dark:bg-slate-800/50 rounded-xl border border-slate-100 dark:border-slate-700/50 flex justify-between items-center hover:shadow-md transition-shadow">
+            <div>
+              <h4 class="font-heading font-semibold text-navy dark:text-white">MongoDB Essentials</h4>
+              <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Udemy</p>
+            </div>
+            <span class="text-sm font-mono text-slate-400 bg-slate-50 dark:bg-slate-800 px-2 py-1 rounded">2020</span>
+          </div>
+          <div class="p-6 bg-white dark:bg-slate-800/50 rounded-xl border border-slate-100 dark:border-slate-700/50 flex justify-between items-center hover:shadow-md transition-shadow">
+            <div>
+              <h4 class="font-heading font-semibold text-navy dark:text-white">Object Oriented Programming</h4>
+              <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Udemy</p>
+            </div>
+            <span class="text-sm font-mono text-slate-400 bg-slate-50 dark:bg-slate-800 px-2 py-1 rounded">2019</span>
+          </div>
+          <div class="p-6 bg-white dark:bg-slate-800/50 rounded-xl border border-slate-100 dark:border-slate-700/50 flex justify-between items-center hover:shadow-md transition-shadow">
+            <div>
+              <h4 class="font-heading font-semibold text-navy dark:text-white">Learn Angular 5 from Scratch</h4>
+              <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Udemy</p>
+            </div>
+            <span class="text-sm font-mono text-slate-400 bg-slate-50 dark:bg-slate-800 px-2 py-1 rounded">2018</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. Final CTA Section -->
+      <section class="py-20 text-center animate-fade-in-up" style="animation-delay: 0.7s">
+        <div class="max-w-3xl mx-auto bg-navy dark:bg-slate-800 rounded-3xl p-12 shadow-xl border border-slate-800 dark:border-slate-700 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-64 h-64 bg-blue/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+          <div class="absolute bottom-0 left-0 w-64 h-64 bg-teal/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+          
+          <div class="relative z-10">
+            <h2 class="text-3xl md:text-4xl font-heading font-semibold text-white mb-6">
+              Let’s Build Something Scalable
+            </h2>
+            <p class="text-lg text-slate-300 mb-10 max-w-xl mx-auto">
+              If you're looking for a senior engineer who understands both architecture and execution, let’s connect.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+              <button class="px-8 py-4 bg-blue hover:bg-blue/90 text-white font-medium rounded-lg shadow-lg hover:-translate-y-1 transition-all duration-300">
+                Contact Me
+              </button>
+              <button class="px-8 py-4 bg-white/10 hover:bg-white/20 text-white border border-white/20 font-medium rounded-lg backdrop-blur-sm hover:-translate-y-1 transition-all duration-300">
+                Schedule a Call
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+    
+    <footer class="border-t border-slate-200 dark:border-slate-800 py-8 text-center text-slate-500 dark:text-slate-400 text-sm">
+      <p>© <span id="current-year"></span> Aniket Shahane. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+      function initStaticSite() {
+        const yearSpan = document.getElementById('current-year');
+        if (yearSpan) {
+          yearSpan.textContent = new Date().getFullYear().toString();
+        }
+
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 20) {
+            navbar?.classList.add('shadow-sm', 'dark:shadow-slate-800');
+          } else {
+            navbar?.classList.remove('shadow-sm', 'dark:shadow-slate-800');
+          }
+        });
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const darkIcon = document.getElementById('theme-toggle-dark-icon');
+        const lightIcon = document.getElementById('theme-toggle-light-icon');
+        const htmlElement = document.documentElement;
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          htmlElement.classList.add('dark');
+          lightIcon?.classList.remove('hidden');
+        } else {
+          htmlElement.classList.remove('dark');
+          darkIcon?.classList.remove('hidden');
+        }
+
+        themeToggleBtn?.addEventListener('click', () => {
+          darkIcon?.classList.toggle('hidden');
+          lightIcon?.classList.toggle('hidden');
+
+          if (htmlElement.classList.contains('dark')) {
+            htmlElement.classList.remove('dark');
+            localStorage.setItem('color-theme', 'light');
+          } else {
+            htmlElement.classList.add('dark');
+            localStorage.setItem('color-theme', 'dark');
+          }
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initStaticSite);
+      } else {
+        initStaticSite();
+      }
+    </script>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>

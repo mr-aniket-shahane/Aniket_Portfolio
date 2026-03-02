@@ -1,684 +1,549 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aniket Shahane Portfolio</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-  <style>
+  <head>
+    <meta charset="utf-8" />
+    <title>Aniket Shahane - Senior Full-Stack Engineer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind Configuration -->
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+              heading: ['Poppins', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            },
+            colors: {
+              navy: '#0F172A',
+              blue: '#2563EB',
+              teal: '#14B8A6',
+              'soft-gray': '#F8FAFC',
+            }
+          }
+        }
+      }
+    </script>
+    <!-- Custom CSS -->
+    <style type="text/tailwindcss">
+      @layer base {
         html {
           scroll-behavior: smooth;
         }
-    body {
-      font-family: 'Montserrat', 'Roboto', Arial, sans-serif;
-      background: linear-gradient(135deg, #f8fafc 0%, #e0eafc 100%);
-      color: #232526;
-    }
-      a, button {
-        transition: transform 0.2s, box-shadow 0.2s;
+        body {
+          @apply bg-soft-gray text-navy dark:bg-navy dark:text-soft-gray antialiased transition-colors duration-300;
+        }
+        h1, h2, h3, h4, h5, h6 {
+          @apply font-heading;
+        }
       }
-      a:hover, a:focus, button:hover, button:focus {
-        transform: scale(1.12);
-        box-shadow: 0 6px 18px 0 #facf0f;
-        outline: none;
+      @layer utilities {
+        .animate-fade-in-up {
+          animation: fadeInUp 0.8s ease-out forwards;
+          opacity: 0;
+        }
       }
-    .navbar {
-      box-shadow: 0 4px 24px rgba(44, 62, 80, 0.12);
-      background: linear-gradient(90deg, #232526 0%, #485563 100%), #232526;
-      border-radius: 18px;
-      margin: 1rem 2vw;
-      padding: 0.5rem 2vw;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      border: 1px solid #e0eafc;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      transition: box-shadow 0.2s, background 0.2s;
-    }
-    @media (max-width: 600px) {
-      .navbar {
-        margin: 0.5rem 1vw;
-        padding: 0.2rem 1vw;
-        border-radius: 12px;
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
-      .navbar-brand {
-        font-size: 1.1rem !important;
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 top-0 transition-all duration-300 bg-soft-gray/90 dark:bg-navy/90 backdrop-blur-md">
+      <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <div class="font-heading text-xl font-semibold tracking-tight">
+          AS<span class="text-blue">.</span>
+        </div>
+        <div class="hidden md:flex space-x-8 text-sm font-medium">
+          <a href="#experience" class="hover:text-blue dark:hover:text-teal transition-colors">Experience</a>
+          <a href="#projects" class="hover:text-blue dark:hover:text-teal transition-colors">Projects</a>
+          <a href="#skills" class="hover:text-blue dark:hover:text-teal transition-colors">Skills</a>
+          <a href="#education" class="hover:text-blue dark:hover:text-teal transition-colors">Education</a>
+          <a href="#certifications" class="hover:text-blue dark:hover:text-teal transition-colors">Certifications</a>
+          <a href="#trainings" class="hover:text-blue dark:hover:text-teal transition-colors">Trainings</a>
+          <a href="#publications" class="hover:text-blue dark:hover:text-teal transition-colors">Publications</a>
+          <a href="#about" class="hover:text-blue dark:hover:text-teal transition-colors">About</a>
+        </div>
+        <button id="theme-toggle" class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle Dark Mode">
+          <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+          </svg>
+          <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+    <main class="pt-24 pb-16 px-6 max-w-7xl mx-auto space-y-32">
+      <!-- Hero, About, Expertise, Experience, Projects, Certifications, CTA sections go here, matching the ref/index.html layout and style -->
+      <!-- ...existing code... -->
+   
+    <script>
+      function initStaticSite() {
+        const yearSpan = document.getElementById('current-year');
+        if (yearSpan) {
+          yearSpan.textContent = new Date().getFullYear().toString();
+        }
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 20) {
+            navbar?.classList.add('shadow-sm', 'dark:shadow-slate-800');
+          } else {
+            navbar?.classList.remove('shadow-sm', 'dark:shadow-slate-800');
+          }
+        });
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const darkIcon = document.getElementById('theme-toggle-dark-icon');
+        const lightIcon = document.getElementById('theme-toggle-light-icon');
+        const htmlElement = document.documentElement;
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          htmlElement.classList.add('dark');
+          lightIcon?.classList.remove('hidden');
+        } else {
+          htmlElement.classList.remove('dark');
+          darkIcon?.classList.remove('hidden');
+        }
+        themeToggleBtn?.addEventListener('click', () => {
+          darkIcon?.classList.toggle('hidden');
+          lightIcon?.classList.toggle('hidden');
+          if (htmlElement.classList.contains('dark')) {
+            htmlElement.classList.remove('dark');
+            localStorage.setItem('color-theme', 'light');
+          } else {
+            htmlElement.classList.add('dark');
+            localStorage.setItem('color-theme', 'dark');
+          }
+        });
       }
-      .nav {
-        flex-wrap: wrap !important;
-        flex-direction: row !important;
-        gap: 0.2rem !important;
-        justify-content: center !important;
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initStaticSite);
+      } else {
+        initStaticSite();
       }
-      .nav-link, .nav-link.minimal-link {
-        font-size: 0.95rem !important;
-        padding: 0.3rem 0.8rem !important;
-        margin-right: 0 !important;
-      }
-    }
-    .navbar-inner {
-      padding: 0 2vw;
-    }
-     .navbar-brand {
-      font-weight: 700;
-      letter-spacing: 2px;
-      font-size: 1.5rem;
-      color: #facf0f !important;
-    }    
-    .navbar-nav .nav-link {
-      font-size: 1.08rem;
-      color: #fff !important;
-      margin-right: 0.7rem;
-      padding: 0.45rem 1.2rem;
-      border-radius: 50px;
-      background: rgba(255,255,255,0.08);
-      box-shadow: 0 2px 8px rgba(44,62,80,0.08);
-      font-weight: 500;
-      letter-spacing: 1px;
-      transition: color 0.2s, background 0.2s, transform 0.2s, box-shadow 0.2s;
-    }
-      .navbar-nav .nav-link:hover {
-      color: #232526 !important;
-      background: linear-gradient(90deg,#facf0f 0%,#ffe985 100%);
-      transform: scale(1.12) !important;
-      box-shadow: 0 6px 18px 0 #facf0f !important;
-      z-index: 2;
-      }
-    
-    header {
-      background: linear-gradient(120deg, #e0eafc 0%, #f8fafc 100%);
-      border-radius: 18px;
-      box-shadow: 0 4px 32px rgba(44, 62, 80, 0.12);
-      margin-top: 3.5rem;
-      margin-bottom: 3.5rem;
-      padding: 5rem 2.5rem;
-      max-width: 900px;
-    }
-    section {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      width: 100vw;
-      margin-left: calc(-10vw + 10%);
-      margin-right: calc(-10vw + 10%);
-      padding-top: 3rem;
-      padding-bottom: 3rem;
-      background: #fff;
-      border-radius: 18px;
-      box-shadow: 0 2px 24px rgba(44, 62, 80, 0.08);
-      margin-bottom: 2rem;
-    }
-    h2 {
-      font-family: 'Montserrat', Arial, sans-serif;
-      font-weight: 700;
-      color: #232526;
-      margin-bottom: 2rem;
-      letter-spacing: 1px;
-      text-align: center;
-      text-shadow: 0 2px 8px #fff, 0 1px 2px #e0eafc;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: normal;
-    }
-    .card {
-      border-radius: 14px;
-      box-shadow: 0 2px 16px rgba(44, 62, 80, 0.10);
-      border: none;
-      background: #f8fafc;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-     .nav-link.minimal-link {
-      color: #fff !important;
-      background: rgba(255,255,255,0.08);
-      border-radius: 50px;
-      font-weight: 500;
-      letter-spacing: 1px;
-      padding: 0.45rem 1.2rem;
-      margin-right: 0.7rem;
-      box-shadow: 0 2px 8px rgba(44,62,80,0.08);
-      transition: color 0.2s, background 0.2s, transform 0.2s, box-shadow 0.2s;
-     }
-      .nav-link.minimal-link:hover, .nav-link.minimal-link:focus {
-      color: #232526 !important;
-      background: linear-gradient(90deg,#facf0f 0%,#ffe985 100%);
-      transform: scale(1.12);
-      box-shadow: 0 6px 18px 0 #facf0f;
-      outline: none;
-    }
-    .card:hover {
-      transform: translateY(-8px) scale(1.03);
-      box-shadow: 0 8px 32px rgba(44, 62, 80, 0.18);
-    }
-    .card-title {
-      font-size: 1.3rem;
-      font-weight: 900;
-      color: #232526;
-      margin-bottom: 0.5rem;
-      text-align: center;
-    }
-    .card-img-top {
-      border-radius: 12px 12px 0 0;
-      box-shadow: 0 2px 8px rgba(44, 62, 80, 0.12);
-      background: linear-gradient(120deg, #e0eafc 0%, #f8fafc 100%);
-      padding: 0.5rem;
-      object-fit: contain;
-      height: 180px;
-      width: 100%;
-      transition: background 0.3s;
-    }
-    .card:hover .card-img-top {
-      background: linear-gradient(120deg, #f8fafc 0%, #e0eafc 100%);
-    }
-    .list-group-item {
-      background: #f6f8fa;
-      border-radius: 8px;
-      margin-bottom: 0.5rem;
-      font-size: 1.05rem;
-      border: none;
-      box-shadow: 0 1px 4px rgba(44, 62, 80, 0.04);
-    }
-    .skills-section .col-md-2, .skills-section .col-6 {
-      margin-bottom: 2rem;
-    }
-    .skills-section img {
-      background: #e0eafc;
-      border-radius: 8px;
-      box-shadow: 0 1px 6px rgba(44, 62, 80, 0.08);
-      padding: 0.5rem;
-      margin-bottom: 0.5rem;
-      height: 70px;
-      object-fit: contain;
-    }
-    .skills-section div {
-      font-weight: 500;
-      color: #232526;
-      font-size: 1rem;
-    }
-    .about-section img {
-      border-radius: 50%;
-      box-shadow: 0 4px 24px rgba(44, 62, 80, 0.12);
-      margin-bottom: 1rem;
-      background: #e0eafc;
-      padding: 0.5rem;
-      height: 180px;
-      object-fit: cover;
-    }
-    @media (max-width: 900px) {
-      section {
-        padding-top: 2rem;
-        padding-bottom: 2rem;
-        margin-left: 0;
-        margin-right: 0;
-      }
-      header {
-        padding: 2rem 1rem;
-      }
-      .card-img-top, .about-section img {
-        height: 120px;
-      }
-    }
-    @media (max-width: 600px) {
-      section {
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-        margin-left: 0;
-        margin-right: 0;
-      }
-      header {
-        padding: 1rem 0.5rem;
-      }
-      h2 {
-        font-size: 1.1rem;
-      }
-      .card-title {
-        font-size: 1rem;
-      }
-      .card-img-top, .about-section img {
-        height: 80px;
-      }
-    }
-    .section-highlight {
-      animation: highlightSection 3s;
-    }
-    @keyframes highlightSection {
-      0% { box-shadow: 0 0 0 0 #facf0f; }
-      40% { box-shadow: 0 0 32px 8px #facf0f; }
-      100% { box-shadow: 0 0 0 0 #facf0f; }
-    }
-    .skill-tooltip {
-      background: #facf0f;
-      color: #232526 !important;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px #facf0f;
-      padding: 0.2rem 0.7rem;
-      font-size: 1.15rem !important;
-      transition: background 0.2s, color 0.2s;
-    }
-    .contact-gradient-btn {
-      background: linear-gradient(90deg,#facf0f 0%,#ffe985 100%) !important;
-      color: #232526 !important;
-      border: none !important;
-      font-weight: 600;
-      box-shadow: 0 2px 8px rgba(44,62,80,0.12);
-      transition: background 0.2s, color 0.2s;
-    }
-    .contact-gradient-btn:hover, .contact-gradient-btn:focus {
-      background: linear-gradient(90deg,#ffe985 0%,#facf0f 100%) !important;
-      color: #232526 !important;
-    }
-    .tech-lead-gradient {
-      background: linear-gradient(90deg,#facf0f 0%,#ffe985 100%) !important;
-      color: #232526 !important;
-      font-weight: 600;
-      border: none !important;
-      box-shadow: 0 2px 8px rgba(44,62,80,0.12);
-    }
-  </style>
-</head>
-<body class="bg-light"> 
-  <nav class="navbar navbar-light minimal-nav sticky-top">
-    <div class="d-flex justify-content-between align-items-center w-100 navbar-inner">
-      <a class="navbar-brand fw-bold" style="font-size:2rem; color:#232526; letter-spacing:2px; font-family:'Montserrat',sans-serif;" href="#">Aniket Shahane</a>
-      <ul class="nav nav-pills gap-2">  
-      <ul class="nav nav-pills gap-2 ms-auto">
-        <li class="nav-item"><a class="nav-link minimal-link" href="#experience">Experience</a></li>
-        <li class="nav-item"><a class="nav-link minimal-link" href="#projects">Projects</a></li>
-        <li class="nav-item"><a class="nav-link minimal-link" href="#skills">Skills</a></li>
-        <li class="nav-item"><a class="nav-link minimal-link" href="#education">Education</a></li>
-        <li class="nav-item"><a class="nav-link minimal-link" href="#certifications">Certifications</a></li>
-        <li class="nav-item"><a class="nav-link minimal-link" href="#trainings">Trainings</a></li>
-        <li class="nav-item"><a class="nav-link minimal-link" href="#publications">Publications</a></li>
-        <li class="nav-item"><a class="nav-link minimal-link" href="#about">About</a></li>
+    </script>
+  
+  <!-- Old nav removed, new nav above contains all menu items -->
+
+  <section id="hero" class="min-h-[80vh] flex items-center animate-fade-in-up" style="animation-delay: 0.1s;     margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));">
+    <div class="grid md:grid-cols-2 gap-12 items-center w-full">
+      <div class="space-y-6">
+        <h1 class="text-5xl md:text-7xl font-heading font-semibold leading-tight tracking-tight">
+          Aniket Shahane
+        </h1>
+        <h2 class="text-xl md:text-2xl text-blue dark:text-teal font-medium">
+          Senior Full-Stack Engineer | .NET & Angular Specialist
+        </h2>
+        <p class="text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-xl">
+          I design and build scalable, production-grade web applications that power real business outcomes.<br><br>
+          With 7+ years of experience delivering enterprise solutions, I specialize in architecting clean backend systems, intuitive frontends, and cloud-ready deployments.
+        </p>
+        <div class="flex flex-wrap gap-4 pt-4">
+          <a href="#projects" class="px-6 py-3 bg-blue hover:bg-blue/90 text-white font-medium rounded-lg shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
+            View Case Studies
+          </a>
+          <a href="#" class="px-6 py-3 bg-white dark:bg-slate-800 text-navy dark:text-white border border-slate-200 dark:border-slate-700 hover:border-blue dark:hover:border-teal font-medium rounded-lg shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
+            Download Resume
+          </a>
+        </div>
+      </div>
+      <div class="relative hidden md:block">
+        <div class="absolute inset-0 bg-blue/10 dark:bg-teal/10 rounded-full blur-3xl transform scale-110"></div>
+        <div class="relative aspect-[4/5] max-w-md mx-auto rounded-2xl overflow-hidden shadow-2xl border border-slate-200/50 dark:border-slate-700/50 bg-slate-200 dark:bg-slate-800">
+          <img src="Images/aniket.png" alt="Aniket Shahane" class="object-cover w-full h-full opacity-90 mix-blend-luminosity hover:mix-blend-normal transition-all duration-500" referrerpolicy="no-referrer">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="mb-24">
+    <h2 class="text-3xl font-heading font-semibold mb-8 flex items-center gap-4">
+      <span class="w-8 h-1 bg-blue rounded-full"></span>
+      Experience
+    </h2>
+    <div class="flex flex-wrap justify-center gap-6 mb-10">
+      <div class="flex flex-col items-center bg-gradient-to-br from-blue/10 to-teal/10 rounded-xl shadow-lg px-6 py-4 min-w-[90px]">
+        <div class="text-3xl font-bold text-blue dark:text-teal" id="years"></div>
+        <div class="text-base text-slate-600 dark:text-slate-300">Years</div>
+      </div>
+     
+      <div class="flex flex-col items-center bg-gradient-to-br from-blue/10 to-teal/10 rounded-xl shadow-lg px-6 py-4 min-w-[90px]">
+        <div class="text-3xl font-bold text-blue dark:text-teal" id="months"></div>
+        <div class="text-base text-slate-600 dark:text-slate-300">Months</div>
+      </div>
+      <div class="flex flex-col items-center bg-gradient-to-br from-blue/10 to-teal/10 rounded-xl shadow-lg px-6 py-4 min-w-[90px]">
+        <div class="text-3xl font-bold text-blue dark:text-teal" id="days"></div>
+        <div class="text-base text-slate-600 dark:text-slate-300">Days</div>
+      </div>
+      <div class="flex flex-col items-center bg-gradient-to-br from-blue/10 to-teal/10 rounded-xl shadow-lg px-6 py-4 min-w-[90px]">
+        <div class="text-3xl font-bold text-blue dark:text-teal" id="hours"></div>
+        <div class="text-base text-slate-600 dark:text-slate-300">Hours</div>
+      </div>
+      <div class="flex flex-col items-center bg-gradient-to-br from-blue/10 to-teal/10 rounded-xl shadow-lg px-6 py-4 min-w-[90px]">
+        <div class="text-3xl font-bold text-blue dark:text-teal" id="minutes"></div>
+        <div class="text-base text-slate-600 dark:text-slate-300">Minutes</div>
+      </div>
+      <div class="flex flex-col items-center bg-gradient-to-br from-blue/10 to-teal/10 rounded-xl shadow-lg px-6 py-4 min-w-[90px]">
+        <div class="text-3xl font-bold text-blue dark:text-teal" id="seconds"></div>
+        <div class="text-base text-slate-600 dark:text-slate-300">Seconds</div>
+      </div>
+    </div>
+    <div class="grid md:grid-cols-2 gap-8 justify-center">
+      <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-8 flex flex-col items-center">
+        <img src="Images/prosot-png.png" alt="Prosot India Pvt Ltd" class="w-16 h-16 object-contain mb-4">
+        <h3 class="text-xl font-heading font-semibold mb-1">Prosot India Pvt Ltd</h3>
+        <span class="text-slate-500 dark:text-slate-400 mb-1">1st June 2019 – Present</span>
+        <span class="px-3 py-1 rounded-full bg-blue text-white text-sm mb-2">Current</span>
+        <span class="font-bold text-blue dark:text-teal">(<span id="yearsinprosot">6+</span> years)</span>
+      </div>
+      <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-8 flex flex-col items-center transition-transform duration-200 hover:shadow-xl hover:scale-105">
+        <img src="Images/v10x.png" alt="V10x Technologies" class="w-16 h-16 object-contain mb-4">
+        <h3 class="text-xl font-heading font-semibold mb-1">V10x Technologies</h3>
+        <span class="text-slate-500 dark:text-slate-400 mb-1">25th May 2018 – 25th May 2019</span>
+        <span class="px-3 py-1 rounded-full bg-slate-400 text-white text-sm mb-2">Past</span>
+        <span class="font-bold text-blue dark:text-teal">(1 year)</span>
+      </div>
+    </div>
+  </section> 
+      <!-- Career Timeline & Promotions Section -->
+      <section id="career-timeline" class="mb-24">
+        <h2 class="text-3xl font-heading font-semibold mb-8 flex items-center gap-4">
+          <span class="w-8 h-1 bg-blue rounded-full"></span>
+          Career Timeline & Promotions
+        </h2>
+        <div class="relative pl-8">
+          <!-- Timeline vertical line -->
+          <div class="absolute left-4 top-0 h-full w-1 bg-blue dark:bg-teal rounded-full"></div>
+          <!-- Timeline items -->
+          <div class="space-y-12">
+            <!-- Technical Lead -->
+            <div class="relative flex items-start gap-6">
+              <div  style="left:-22px;" class="absolute left-0 top-2 w-4 h-4 bg-blue dark:bg-teal rounded-full border-2 border-white dark:border-navy"></div>
+              <div class="flex flex-col md:flex-row md:items-center gap-4 w-full">
+                <img src="Images/prosot-png.png" alt="Prosot India Pvt Ltd" class="w-16 h-16 object-contain rounded-xl shadow-md border border-blue dark:border-teal">
+                <div>
+                  <div class="text-lg font-heading font-semibold text-blue dark:text-teal">Technical Lead</div>
+                  <div class="text-sm text-slate-500 dark:text-slate-400">Aug 2024 – Present &bull; 1 yr 8 mos &bull; Remote</div>
+                  <div class="text-sm text-navy dark:text-soft-gray">Prosot India Pvt Ltd</div>
+                </div>
+              </div>
+            </div>
+            <!-- Senior Software Developer -->
+            <div class="relative flex items-start gap-6">
+              <div  style="left:-22px;" class="absolute left-0 top-2 w-4 h-4 bg-blue dark:bg-teal rounded-full border-2 border-white dark:border-navy"></div>
+              <div class="flex flex-col md:flex-row md:items-center gap-4 w-full">
+                <img src="Images/prosot-png.png" alt="Prosot India Pvt Ltd" class="w-16 h-16 object-contain rounded-xl shadow-md border border-blue dark:border-teal">
+                <div>
+                  <div class="text-lg font-heading font-semibold text-blue dark:text-teal">Senior Software Developer</div>
+                  <div class="text-sm text-slate-500 dark:text-slate-400">Aug 2020 – Nov 2024 &bull; 4 yrs 4 mos &bull; Remote</div>
+                  <div class="text-sm text-navy dark:text-soft-gray">Prosot India Pvt Ltd</div>
+                </div>
+              </div>
+            </div>
+            <!-- Software Developer -->
+            <div class="relative flex items-start gap-6">
+              <div  style="left:-22px;" class="absolute left-0 top-2 w-4 h-4 bg-blue dark:bg-teal rounded-full border-2 border-white dark:border-navy"></div>
+              <div class="flex flex-col md:flex-row md:items-center gap-4 w-full">
+                <img src="Images/prosot-png.png" alt="Prosot India Pvt Ltd" class="w-16 h-16 object-contain rounded-xl shadow-md border border-blue dark:border-teal">
+                <div>
+                  <div class="text-lg font-heading font-semibold text-blue dark:text-teal">Software Developer</div>
+                  <div class="text-sm text-slate-500 dark:text-slate-400">Jul 2019 – Aug 2020 &bull; 1 yr 2 mos &bull; Pune, Maharashtra, India</div>
+                  <div class="text-sm text-navy dark:text-soft-gray">Prosot India Pvt Ltd</div>
+                </div>
+              </div>
+            </div>
+            <!-- V10x Technologies -->
+            <div class="relative flex items-start gap-6">
+              <div  style="left:-22px;" class="absolute left-0 top-2 w-4 h-4 bg-blue dark:bg-teal rounded-full border-2 border-white dark:border-navy"></div>
+              <div class="flex flex-col md:flex-row md:items-center gap-4 w-full">
+                <img src="Images/v10x.png" alt="V10x Technologies" class="w-16 h-16 object-contain rounded-xl shadow-md border border-blue dark:border-teal">
+                <div>
+                  <div class="text-lg font-heading font-semibold text-blue dark:text-teal">Software Developer</div>
+                  <div class="text-sm text-slate-500 dark:text-slate-400">May 2018 – May 2019 &bull; 1 yr &bull; Remote</div>
+                  <div class="text-sm text-navy dark:text-soft-gray">V10x Technologies</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+          </div>
+        </div>
+      </section>
+  <section id="projects" class="mb-24">
+    <h2 class="text-3xl font-heading font-semibold mb-8 flex items-center gap-4">
+      <span class="w-8 h-1 bg-blue rounded-full"></span>
+      Projects
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg overflow-hidden flex flex-col items-center">
+        <div class="flex justify-center items-center w-full h-40 bg-gradient-to-br from-blue/10 to-teal/10">
+          <img src="Images/arytic.png" alt="Arytic" class="object-contain h-32">
+        </div>
+        <div class="p-6 flex-1 flex items-center justify-center w-full">
+          <h3 class="text-lg font-heading font-semibold">Arytic</h3>
+        </div>
+      </div>
+      <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg overflow-hidden flex flex-col items-center transition-transform duration-200 hover:shadow-xl hover:scale-105">
+        <div class="flex justify-center items-center w-full h-40 bg-gradient-to-br from-blue/10 to-teal/10">
+          <img src="Images/clocker.png" alt="Clocr" class="object-contain h-32">
+        </div>
+        <div class="p-6 flex-1 flex items-center justify-center w-full">
+          <h3 class="text-lg font-heading font-semibold">Clocr</h3>
+        </div>
+      </div>
+      <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg overflow-hidden flex flex-col items-center">
+        <div class="flex justify-center items-center w-full h-40 bg-gradient-to-br from-blue/10 to-teal/10">
+          <img src="Images/mvs.png" alt="MVS360" class="object-contain h-32">
+        </div>
+        <div class="p-6 flex-1 flex items-center justify-center w-full">
+          <h3 class="text-lg font-heading font-semibold">MVS360</h3>
+        </div>
+      </div>
+      <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg overflow-hidden flex flex-col items-center">
+        <div class="flex justify-center items-center w-full h-40 bg-gradient-to-br from-blue/10 to-teal/10">
+          <img src="Images/dymax.png" alt="Dymax" class="object-contain h-32">
+        </div>
+        <div class="p-6 flex-1 flex items-center justify-center w-full">
+          <h3 class="text-lg font-heading font-semibold">Dymax</h3>
+        </div>
+      </div>
+      <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg overflow-hidden flex flex-col items-center">
+        <div class="flex justify-center items-center w-full h-40 bg-gradient-to-br from-blue/10 to-teal/10">
+          <img src="Images/newIndi.png" alt="New Indi" class="object-contain h-32">
+        </div>
+        <div class="p-6 flex-1 flex items-center justify-center w-full">
+          <h3 class="text-lg font-heading font-semibold">New Indi</h3>
+        </div>
+      </div>
+      <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg overflow-hidden flex flex-col items-center">
+        <div class="flex justify-center items-center w-full h-40 bg-gradient-to-br from-blue/10 to-teal/10">
+          <img src="Images/Tel.png" alt="Tokyo Electron" class="object-contain h-32">
+        </div>
+        <div class="p-6 flex-1 flex items-center justify-center w-full">
+          <h3 class="text-lg font-heading font-semibold">Tokyo Electron</h3>
+        </div>
+      </div>
+      <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg overflow-hidden flex flex-col items-center">
+        <div class="flex justify-center items-center w-full h-40 bg-gradient-to-br from-blue/10 to-teal/10">
+          <img src="Images/dfw.png" alt="DFW Land" class="object-contain h-20">
+        </div>
+        <div class="p-6 flex-1 flex items-center justify-center w-full">
+          <h3 class="text-lg font-heading font-semibold">DFW Land</h3>
+        </div>
+      </div>
+      <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg overflow-hidden flex flex-col items-center">
+        <div class="flex justify-center items-center w-full h-40 bg-gradient-to-br from-blue/10 to-teal/10">
+          <img src="Images/mtmotel.png" alt="My Motel" class="object-contain h-20">
+        </div>
+        <div class="p-6 flex-1 flex items-center justify-center w-full">
+          <h3 class="text-lg font-heading font-semibold">My Motel</h3>
+        </div>
+      </div>
+      <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg overflow-hidden flex flex-col items-center">
+        <div class="flex justify-center items-center w-full h-40 bg-gradient-to-br from-blue/10 to-teal/10">
+          <img src="Images/halo.png" alt="Halo Program" class="object-contain h-20">
+        </div>
+        <div class="p-6 flex-1 flex items-center justify-center w-full">
+          <h3 class="text-lg font-heading font-semibold">Halo Program</h3>
+        </div>
+      </div>
+      <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg overflow-hidden flex flex-col items-center">
+        <div class="flex justify-center items-center w-full h-40 bg-gradient-to-br from-blue/10 to-teal/10">
+          <img src="Images/AutoCodeGen.png" alt="Auto Code Gen" class="object-contain h-32">
+        </div>
+        <div class="p-6 flex-1 flex items-center justify-center w-full">
+          <h3 class="text-lg font-heading font-semibold">Auto Code Gen</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="skills" class="mb-24 skills-section">
+    <h2 class="text-3xl font-heading font-semibold mb-8 flex items-center gap-4">
+      <span class="w-8 h-1 bg-blue rounded-full"></span>
+      Skills
+    </h2>
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 justify-center">
+      <div class="flex flex-col items-center bg-gradient-to-br from-blue/10 to-teal/10 rounded-xl shadow-lg p-4">
+        <img src="Images/C_Programming_Language.svg" alt="C" class="mb-2 w-14 h-14 object-contain">
+        <div class="font-heading font-semibold text-blue dark:text-teal">C</div>
+      </div>
+      <div class="flex flex-col items-center bg-gradient-to-br from-blue/10 to-teal/10 rounded-xl shadow-lg p-4">
+        <img src="Images/c++.png" alt="C++" class="mb-2 w-14 h-14 object-contain">
+        <div class="font-heading font-semibold text-blue dark:text-teal">C++</div>
+      </div>
+      <div class="flex flex-col items-center bg-gradient-to-br from-blue/10 to-teal/10 rounded-xl shadow-lg p-4">
+        <img src="Images/Blazor.png" alt="Blazor" class="mb-2 w-14 h-14 object-contain">
+        <div class="font-heading font-semibold text-blue dark:text-teal">Blazor</div>
+      </div>
+      <div class="flex flex-col items-center bg-gradient-to-br from-blue/10 to-teal/10 rounded-xl shadow-lg p-4">
+        <img src="Images/CSharp.png" alt="C#" class="mb-2 w-14 h-14 object-contain">
+        <div class="font-heading font-semibold text-blue dark:text-teal">C#</div>
+      </div>
+      <div class="flex flex-col items-center bg-gradient-to-br from-blue/10 to-teal/10 rounded-xl shadow-lg p-4">
+        <img src="Images/NET_Core_Logo.svg.png" alt=".Net Core" class="mb-2 w-14 h-14 object-contain">
+        <div class="font-heading font-semibold text-blue dark:text-teal">.Net Core</div>
+      </div>
+      <div class="flex flex-col items-center bg-gradient-to-br from-blue/10 to-teal/10 rounded-xl shadow-lg p-4">
+        <img src="Images/angular.png" alt="Angular" class="mb-2 w-14 h-14 object-contain">
+        <div class="font-heading font-semibold text-blue dark:text-teal">Angular</div>
+      </div>
+      <div class="flex flex-col items-center bg-gradient-to-br from-blue/10 to-teal/10 rounded-xl shadow-lg p-4">
+        <img src="Images/azure.png" alt="Azure" class="mb-2 w-14 h-14 object-contain">
+        <div class="font-heading font-semibold text-blue dark:text-teal">Azure</div>
+      </div>
+      <div class="flex flex-col items-center bg-gradient-to-br from-blue/10 to-teal/10 rounded-xl shadow-lg p-4">
+        <img src="Images/R.png" alt="R" class="mb-2 w-14 h-14 object-contain">
+        <div class="font-heading font-semibold text-blue dark:text-teal">R</div>
+      </div>
+      <div class="flex flex-col items-center bg-gradient-to-br from-blue/10 to-teal/10 rounded-xl shadow-lg p-4">
+        <img src="Images/python.svg" alt="Python" class="mb-2 w-14 h-14 object-contain">
+        <div class="font-heading font-semibold text-blue dark:text-teal">Python</div>
+      </div>
+      <div class="flex flex-col items-center bg-gradient-to-br from-blue/10 to-teal/10 rounded-xl shadow-lg p-4">
+        <img src="Images/mysql.png" alt="MySQL" class="mb-2 w-14 h-14 object-contain">
+        <div class="font-heading font-semibold text-blue dark:text-teal">MySQL</div>
+      </div>
+      <div class="flex flex-col items-center bg-gradient-to-br from-blue/10 to-teal/10 rounded-xl shadow-lg p-4">
+        <img src="Images/sql.svg" alt="SQL" class="mb-2 w-14 h-14 object-contain">
+        <div class="font-heading font-semibold text-blue dark:text-teal">SQL</div>
+      </div>
+      <div class="flex flex-col items-center bg-gradient-to-br from-blue/10 to-teal/10 rounded-xl shadow-lg p-4">
+        <img src="Images/mongo.png" alt="MongoDB" class="mb-2 w-14 h-14 object-contain">
+        <div class="font-heading font-semibold text-blue dark:text-teal">MongoDB</div>
+      </div>
+      <div class="flex flex-col items-center bg-gradient-to-br from-blue/10 to-teal/10 rounded-xl shadow-lg p-4">
+        <img src="Images/rest.png" alt="REST web services" class="mb-2 w-14 h-14 object-contain">
+        <div class="font-heading font-semibold text-blue dark:text-teal">REST</div>
+      </div>
+      <div class="flex flex-col items-center bg-gradient-to-br from-blue/10 to-teal/10 rounded-xl shadow-lg p-4">
+        <img src="Images/git.png" alt="Git" class="mb-2 w-14 h-14 object-contain">
+        <div class="font-heading font-semibold text-blue dark:text-teal">Git</div>
+      </div>
+      <div class="flex flex-col items-center bg-gradient-to-br from-blue/10 to-teal/10 rounded-xl shadow-lg p-4">
+        <img src="Images/html.png" alt="HTML" class="mb-2 w-14 h-14 object-contain">
+        <div class="font-heading font-semibold text-blue dark:text-teal">HTML</div>
+      </div>
+      <div class="flex flex-col items-center bg-gradient-to-br from-blue/10 to-teal/10 rounded-xl shadow-lg p-4">
+        <img src="Images/css.svg" alt="CSS" class="mb-2 w-14 h-14 object-contain">
+        <div class="font-heading font-semibold text-blue dark:text-teal">CSS</div>
+      </div>
+      <div class="flex flex-col items-center bg-gradient-to-br from-blue/10 to-teal/10 rounded-xl shadow-lg p-4">
+        <img src="Images/bootstrap.svg" alt="Bootstrap" class="mb-2 w-14 h-14 object-contain">
+        <div class="font-heading font-semibold text-blue dark:text-teal">Bootstrap</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education" class="mb-24">
+    <h2 class="text-3xl font-heading font-semibold mb-12 flex items-center gap-4">
+      <span class="w-8 h-1 bg-blue rounded-full"></span>
+      Education
+    </h2>
+    <div class="grid md:grid-cols-2 gap-4">
+      <div class="p-6 bg-white dark:bg-slate-800/50 rounded-xl border border-slate-100 dark:border-slate-700/50 flex flex-col justify-between items-center hover:shadow-md transition-shadow text-center">
+        <div class="mb-3">
+          <span class="fa fa-graduation-cap fa-2x text-blue"></span>
+        </div>
+        <h4 class="font-heading font-semibold text-navy dark:text-white">Master of Technology</h4>
+        <div class="text-sm text-slate-500 dark:text-slate-400 mt-1">Computer Science and Engineering</div>
+        <div class="text-sm text-slate-500 dark:text-slate-400 mt-1">Vishwakarma Institute of Technology (Autonomous)</div>
+        <div class="text-sm text-slate-500 dark:text-slate-400 mt-1">Savitribai Phule Pune University</div>
+        <span class="text-sm font-mono text-slate-400 bg-slate-50 dark:bg-slate-800 px-2 py-1 rounded mt-2">2019</span>
+        <div class="font-bold text-blue-600 dark:text-teal mt-2">CGPA 8.6</div>
+      </div>
+      <div class="p-6 bg-white dark:bg-slate-800/50 rounded-xl border border-slate-100 dark:border-slate-700/50 flex flex-col justify-between items-center hover:shadow-md transition-shadow text-center">
+        <div class="mb-3">
+          <span class="fa fa-university fa-2x text-blue"></span>
+        </div>
+        <h4 class="font-heading font-semibold text-navy dark:text-white">Bachelor of Engineering</h4>
+        <div class="text-sm text-slate-500 dark:text-slate-400 mt-1">Information Technology</div>
+        <div class="text-sm text-slate-500 dark:text-slate-400 mt-1">Jayawantrao Sawant College of Engineering</div>
+        <div class="text-sm text-slate-500 dark:text-slate-400 mt-1">Savitribai Phule Pune University</div>
+        <span class="text-sm font-mono text-slate-400 bg-slate-50 dark:bg-slate-800 px-2 py-1 rounded mt-2">2016</span>
+        <div class="font-bold text-blue-600 dark:text-teal mt-2">67.93%</div>
+      </div>
+      <div class="p-6 bg-white dark:bg-slate-800/50 rounded-xl border border-slate-100 dark:border-slate-700/50 flex flex-col justify-between items-center hover:shadow-md transition-shadow text-center">
+        <div class="mb-3">
+          <span class="fa fa-certificate fa-2x text-blue"></span>
+        </div>
+        <h4 class="font-heading font-semibold text-navy dark:text-white">Diploma</h4>
+        <div class="text-sm text-slate-500 dark:text-slate-400 mt-1">Computer Technology</div>
+        <div class="text-sm text-slate-500 dark:text-slate-400 mt-1">P. Dr. V. V. P. Institute of Technology & Engineering (Polytechnic)</div>
+        <div class="text-sm text-slate-500 dark:text-slate-400 mt-1">Maharashtra State Board of Technical Education</div>
+        <span class="text-sm font-mono text-slate-400 bg-slate-50 dark:bg-slate-800 px-2 py-1 rounded mt-2">2013</span>
+        <div class="font-bold text-blue-600 dark:text-teal mt-2">68.90%</div>
+      </div>
+      <div class="p-6 bg-white dark:bg-slate-800/50 rounded-xl border border-slate-100 dark:border-slate-700/50 flex flex-col justify-between items-center hover:shadow-md transition-shadow text-center">
+        <div class="mb-3">
+          <span class="fa fa-book fa-2x text-blue"></span>
+        </div>
+        <h4 class="font-heading font-semibold text-navy dark:text-white">S.S.C</h4>
+        <div class="text-sm text-slate-500 dark:text-slate-400 mt-1">Secondary School Certificate</div>
+        <div class="text-sm text-slate-500 dark:text-slate-400 mt-1">Shri Ambika Vidyalaya</div>
+        <div class="text-sm text-slate-500 dark:text-slate-400 mt-1">Kedgaon Maharashtra State Board of S.S.C</div>
+        <span class="text-sm font-mono text-slate-400 bg-slate-50 dark:bg-slate-800 px-2 py-1 rounded mt-2">2009</span>
+        <div class="font-bold text-blue-600 dark:text-teal mt-2">75.69%</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications" class="mb-24">
+    <h2 class="text-3xl font-heading font-semibold mb-8 flex items-center gap-4">
+      <span class="w-8 h-1 bg-blue rounded-full"></span>
+      Certifications
+    </h2>
+    <ul class="space-y-4">
+      <li class="bg-white dark:bg-slate-800 rounded-xl shadow-lg px-6 py-4 font-medium">ORACLE Core Java Certification - Oracle Inc. (NIIT, Pune)</li>
+      <li class="bg-white dark:bg-slate-800 rounded-xl shadow-lg px-6 py-4 font-medium">MongoDB Essentials - Understand the Basics of MongoDB (Online - www.udemy.com)</li>
+      <li class="bg-white dark:bg-slate-800 rounded-xl shadow-lg px-6 py-4 font-medium">Object Oriented Programming (Online - www.udemy.com)</li>
+      <li class="bg-white dark:bg-slate-800 rounded-xl shadow-lg px-6 py-4 font-medium">Object Oriented Programming in Java (Online - www.udemy.com)</li>
+      <li class="bg-white dark:bg-slate-800 rounded-xl shadow-lg px-6 py-4 font-medium">HTML5 and CSS3 Fundamentals (Online - www.udemy.com)</li>
+      <li class="bg-white dark:bg-slate-800 rounded-xl shadow-lg px-6 py-4 font-medium">Learn Angular 5 from Scratch (Online - www.udemy.com)</li>
+    </ul>
+  </section>
+
+  <section id="trainings" class="mb-24">
+    <h2 class="text-3xl font-heading font-semibold mb-8 flex items-center gap-4">
+      <span class="w-8 h-1 bg-blue rounded-full"></span>
+      Trainings
+    </h2>
+    <ul class="space-y-4">
+      <li class="bg-white dark:bg-slate-800 rounded-xl shadow-lg px-6 py-4 font-medium">Emerging trends in IT – Java, Servlet, PHP, MongoDB, Hadoop</li>
+      <li class="bg-white dark:bg-slate-800 rounded-xl shadow-lg px-6 py-4 font-medium">Advance techniques to write and present research paper</li>
+    </ul>
+    </section>
+
+    <section id="publications" class="mb-24">
+      <h2 class="text-3xl font-heading font-semibold mb-8 flex items-center gap-4">
+        <span class="w-8 h-1 bg-blue rounded-full"></span>
+        Publications
+      </h2>
+      <ul class="space-y-4">
+        <li class="bg-white dark:bg-slate-800 rounded-xl shadow-lg px-6 py-4 font-medium">Research Paper on Meta Search Engine for Traveler (IJRISE)</li>
+        <li class="bg-white dark:bg-slate-800 rounded-xl shadow-lg px-6 py-4 font-medium">Implementation Paper on Meta Search Engine for Traveler (ICRTCIT)</li>
       </ul>
-    </div>
-  </nav>
+    </section>
 
-  <header class="container py-5 text-center profile-header">
-    <div class="profile-prominent d-flex flex-column align-items-center py-4">
-      <img src="Images/user.png" alt="Aniket Shahane" class="profile-avatar shadow-lg mb-4" style="width:180px;height:180px;border-radius:50%;object-fit:cover;border:6px solid #fff;box-shadow:0 8px 32px rgba(44,62,80,0.12);">
-      <h1 class="fw-bold mb-2" style="font-size:2.8rem;letter-spacing:2px;font-family:'Montserrat',sans-serif;">Aniket Sunil Shahane</h1>
-      <div class="mb-2 text-muted" style="font-size:1.2rem;">
-        <span class="me-2"><img src="https://cdn.wallofportfolios.in/production/images/location.57fea50af63b.svg" style="width:18px;vertical-align:middle;">Pune, Maharashtra, India</span>
-        <span class="badge ms-2 tech-lead-gradient" style="font-size:1rem;">Technical Lead</span>
-      </div>
-      <div class="mb-3" style="font-size:1.15rem; color:#485563; font-family:'Roboto',sans-serif;">Full-Stack & Cloud Developer skilled in Angular, Blazor, .NET Core, SQL, MongoDB, and AI solutions.</div>
-      <div class="d-flex gap-3 mb-2">
-        <a href="mailto:mr.aniketshahane@gmail.com" class="btn btn-outline-dark rounded-pill profile-btn" style="font-size:1.1rem;min-width:120px;">Contact</a>
-        <a href="https://www.linkedin.com/in/mraniketshahane" target="_blank" class="btn btn-outline-dark rounded-pill profile-btn" style="font-size:1.1rem;min-width:120px;">LinkedIn</a>
-      </div>
-    </div>
-  </header>
-
-  <section id="experience" class="container mb-5">
-    <h2 class="mb-4" style="font-family:'Montserrat',sans-serif;font-size:2rem;">Experience</h2>
-    <div class="mt-4 mb-5 text-center">
-      <div id="countdown" class="d-flex flex-wrap justify-content-center gap-3">
-      <div class="exp-card text-center p-3 rounded shadow" style="background:linear-gradient(135deg,#e0eafc 0%,#bfc8d8 100%); min-width:90px;">
-        <div class="exp-value fw-bold" id="years" style="font-size:2.2rem; color:#2d3a4a;"></div>
-<div class="exp-label" style="font-size:1.1rem; color:#4a5a6a;">Years</div>
-</div>
-        <div class="exp-card text-center p-3 rounded shadow" style="background:linear-gradient(135deg,#e0eafc 0%,#bfc8d8 100%); min-width:90px;">
-          <div class="exp-value fw-bold" id="months" style="font-size:2.2rem; color:#2d3a4a;"></div>
-<div class="exp-label" style="font-size:1.1rem; color:#4a5a6a;">Months</div>
-</div>
-        <div class="exp-card text-center p-3 rounded shadow" style="background:linear-gradient(135deg,#e0eafc 0%,#bfc8d8 100%); min-width:90px;">
-          <div class="exp-value fw-bold" id="days" style="font-size:2.2rem; color:#2d3a4a;"></div>
-<div class="exp-label" style="font-size:1.1rem; color:#4a5a6a;">Days</div>
-</div>
-        <div class="exp-card text-center p-3 rounded shadow" style="background:linear-gradient(135deg,#e0eafc 0%,#bfc8d8 100%); min-width:90px;">
-          <div class="exp-value fw-bold" id="hours" style="font-size:2.2rem; color:#2d3a4a;"></div>
-<div class="exp-label" style="font-size:1.1rem; color:#4a5a6a;">Hours</div>
-</div>
-        <div class="exp-card text-center p-3 rounded shadow" style="background:linear-gradient(135deg,#e0eafc 0%,#bfc8d8 100%); min-width:90px;">
-          <div class="exp-value fw-bold" id="minutes" style="font-size:2.2rem; color:#2d3a4a;"></div>
-<div class="exp-label" style="font-size:1.1rem; color:#4a5a6a;">Minutes</div>
-</div>
-        <div class="exp-card text-center p-3 rounded shadow" style="background:linear-gradient(135deg,#e0eafc 0%,#bfc8d8 100%); min-width:90px;">
-          <div class="exp-value fw-bold" id="seconds" style="font-size:2.2rem; color:#2d3a4a;"></div>
-<div class="exp-label" style="font-size:1.1rem; color:#4a5a6a;">Seconds</div>
-</div>
-      </div>
-    </div>
-    <div class="row g-5 justify-content-center">
-      <div class="col-md-5">
-        <div class="card h-100 text-center minimal-card" style="background:#fff;box-shadow:0 2px 16px rgba(44,62,80,0.08);border-radius:16px;">
-          <div class="d-flex flex-column align-items-center py-4">
-            <img src="Images/prosot-png.png" alt="Prosot India Pvt Ltd" style="width:64px;height:64px;object-fit:contain;margin-bottom:1rem;">
-            <h3 class="card-title mb-1" style="font-size:1.3rem;font-family:'Montserrat',sans-serif;">Prosot India Pvt Ltd</h3>
-            <span class="text-muted mb-1" style="font-size:1rem;">1st June 2019 – Present</span>
-            <span class="badge bg-primary mb-2" style="font-size:1rem;">Current</span>
-            <span class="fw-bold" style="font-size:1.1rem;">(<span id="yearsinprosot">6+</span> years)</span>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-5">
-        <div class="card h-100 text-center minimal-card" style="background:#fff;box-shadow:0 2px 16px rgba(44,62,80,0.08);border-radius:16px;">
-          <div class="d-flex flex-column align-items-center py-4">
-            <img src="Images/v10x.png" alt="V10x Technologies" style="width:64px;height:64px;object-fit:contain;margin-bottom:1rem;">
-            <h3 class="card-title mb-1" style="font-size:1.3rem;font-family:'Montserrat',sans-serif;">V10x Technologies</h3>
-            <span class="text-muted mb-1" style="font-size:1rem;">25th May 2018 – 25th May 2019</span>
-            <span class="badge bg-secondary mb-2" style="font-size:1rem;">Past</span>
-            <span class="fw-bold" style="font-size:1.1rem;">(1 year)</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="projects" class="container mb-5">
-    <h2 class="mb-4">Projects</h2>
-    <div class="row g-4">
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="card h-100">
-          <img src="Images/arytic.png" class="card-img-top" alt="Arytic" style="background:linear-gradient(135deg,#e0eafc 0%,#bfc8d8 100%); border-radius:16px 16px 0 0;">
-          <div class="card-body">
-            <h5 class="card-title">Arytic</h5>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="card h-100">
-          <img src="Images/clocker.png" class="card-img-top" alt="Clocr" style="background:linear-gradient(135deg,#e0eafc 0%,#bfc8d8 100%); border-radius:16px 16px 0 0;">
-          <div class="card-body">
-            <h5 class="card-title">Clocr</h5>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="card h-100">
-          <img src="Images/mvs.png" class="card-img-top" alt="MVS360" style="background:linear-gradient(135deg,#e0eafc 0%,#bfc8d8 100%); border-radius:16px 16px 0 0;">
-          <div class="card-body">
-            <h5 class="card-title">MVS360</h5>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="card h-100">
-          <img src="Images/dymax.png" class="card-img-top" alt="Dymax" style="background:linear-gradient(135deg,#e0eafc 0%,#bfc8d8 100%); border-radius:16px 16px 0 0;">
-          <div class="card-body">
-            <h5 class="card-title">Dymax</h5>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="card h-100">
-          <img src="Images/newIndi.png" class="card-img-top" alt="New Indi" style="background:linear-gradient(135deg,#e0eafc 0%,#bfc8d8 100%); border-radius:16px 16px 0 0;">
-          <div class="card-body">
-            <h5 class="card-title">New Indi</h5>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="card h-100">
-          <img src="Images/Tel.png" class="card-img-top" alt="Tokyo Electron" style="background:linear-gradient(135deg,#e0eafc 0%,#bfc8d8 100%); border-radius:16px 16px 0 0;">
-          <div class="card-body">
-            <h5 class="card-title">Tokyo Electron</h5>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="card h-100">
-          <img src="Images/dfw.png" class="card-img-top" alt="DFW Land" style="background:linear-gradient(135deg,#e0eafc 0%,#bfc8d8 100%); border-radius:16px 16px 0 0;">
-          <div class="card-body">
-            <h5 class="card-title">DFW Land</h5>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="card h-100">
-          <img src="Images/mtmotel.png" class="card-img-top" alt="My Motel" style="background:linear-gradient(135deg,#e0eafc 0%,#bfc8d8 100%); border-radius:16px 16px 0 0;">
-          <div class="card-body">
-            <h5 class="card-title">My Motel</h5>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="card h-100">
-          <img src="Images/halo.png" class="card-img-top" alt="Halo Program" style="background:linear-gradient(135deg,#e0eafc 0%,#bfc8d8 100%); border-radius:16px 16px 0 0;">
-          <div class="card-body">
-            <h5 class="card-title">Halo Program</h5>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="card h-100">
-          <img src="Images/AutoCodeGen.png" class="card-img-top" alt="Auto Code Gen" style="background:linear-gradient(135deg,#e0eafc 0%,#bfc8d8 100%); border-radius:16px 16px 0 0;">
-          <div class="card-body">
-            <h5 class="card-title">Auto Code Gen</h5>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="skills" class="container mb-5 skills-section">
-    <h2 class="mb-4">Skills</h2>
-    <div class="row g-4 justify-content-center">
-      <div class="col-6 col-md-2 text-center">
-        <div class="p-3 rounded shadow-lg" style="background: linear-gradient(120deg, #e0eafc 0%, #f8fafc 100%);">
-          <img src="Images/C_Programming_Language.svg" alt="C" class="mb-2" style="max-width:60px;">
-          <div class="fw-bold text-primary" style="font-size:1.1rem;">C</div>
-        </div>
-      </div>
-      <div class="col-6 col-md-2 text-center">
-        <div class="p-3 rounded shadow-lg" style="background: linear-gradient(120deg, #e0eafc 0%, #f8fafc 100%);">
-          <img src="Images/c++.png" alt="C++" class="mb-2" style="max-width:60px;">
-          <div class="fw-bold text-primary" style="font-size:1.1rem;">C++</div>
-        </div>
-      </div>
-      <div class="col-6 col-md-2 text-center">
-        <div class="p-3 rounded shadow-lg" style="background: linear-gradient(120deg, #e0eafc 0%, #f8fafc 100%);">
-          <img src="Images/Blazor.png" alt="Blazor" class="mb-2" style="max-width:60px;">
-          <div class="fw-bold text-primary" style="font-size:1.1rem;">Blazor</div>
-        </div>
-      </div>
-      <div class="col-6 col-md-2 text-center">
-        <div class="p-3 rounded shadow-lg" style="background: linear-gradient(120deg, #e0eafc 0%, #f8fafc 100%);">
-          <img src="Images/CSharp.png" alt="C#" class="mb-2" style="max-width:60px;">
-          <div class="fw-bold text-primary" style="font-size:1.1rem;">C#</div>
-        </div>
-      </div>
-      <div class="col-6 col-md-2 text-center">
-        <div class="p-3 rounded shadow-lg" style="background: linear-gradient(120deg, #e0eafc 0%, #f8fafc 100%);">
-          <img src="Images/NET_Core_Logo.svg.png" alt=".Net Core" class="mb-2" style="max-width:60px;">
-          <div class="fw-bold text-primary" style="font-size:1.1rem;">.Net Core</div>
-        </div>
-      </div>
-      <div class="col-6 col-md-2 text-center">
-        <div class="p-3 rounded shadow-lg" style="background: linear-gradient(120deg, #e0eafc 0%, #f8fafc 100%);">
-          <img src="Images/angular.png" alt="Angular" class="mb-2" style="max-width:60px;">
-          <div class="fw-bold text-primary" style="font-size:1.1rem;">Angular</div>
-        </div>
-      </div>
-      <div class="col-6 col-md-2 text-center">
-        <div class="p-3 rounded shadow-lg" style="background: linear-gradient(120deg, #e0eafc 0%, #f8fafc 100%);">
-          <img src="Images/azure.png" alt="Azure" class="mb-2" style="max-width:60px;">
-          <div class="fw-bold text-primary" style="font-size:1.1rem;">Azure</div>
-        </div>
-      </div>
-      <div class="col-6 col-md-2 text-center">
-        <div class="p-3 rounded shadow-lg" style="background: linear-gradient(120deg, #e0eafc 0%, #f8fafc 100%);">
-          <img src="Images/R.png" alt="R" class="mb-2" style="max-width:60px;">
-          <div class="fw-bold text-primary" style="font-size:1.1rem;">R</div>
-        </div>
-      </div>
-      <div class="col-6 col-md-2 text-center">
-        <div class="p-3 rounded shadow-lg" style="background: linear-gradient(120deg, #e0eafc 0%, #f8fafc 100%);">
-          <img src="Images/python.svg" alt="Python" class="mb-2" style="max-width:60px;">
-          <div class="fw-bold text-primary" style="font-size:1.1rem;">Python</div>
-        </div>
-      </div>
-      <div class="col-6 col-md-2 text-center">
-        <div class="p-3 rounded shadow-lg" style="background: linear-gradient(120deg, #e0eafc 0%, #f8fafc 100%);">
-          <img src="Images/mysql.png" alt="MySQL" class="mb-2" style="max-width:60px;">
-          <div class="fw-bold text-primary" style="font-size:1.1rem;">MySQL</div>
-        </div>
-      </div>
-      <div class="col-6 col-md-2 text-center">
-        <div class="p-3 rounded shadow-lg" style="background: linear-gradient(120deg, #e0eafc 0%, #f8fafc 100%);">
-          <img src="Images/sql.svg" alt="SQL" class="mb-2" style="max-width:60px;">
-          <div class="fw-bold text-primary" style="font-size:1.1rem;">SQL</div>
-        </div>
-      </div>
-      <div class="col-6 col-md-2 text-center">
-        <div class="p-3 rounded shadow-lg" style="background: linear-gradient(120deg, #e0eafc 0%, #f8fafc 100%);">
-          <img src="Images/mongo.png" alt="MongoDB" class="mb-2" style="max-width:60px;">
-          <div class="fw-bold text-primary" style="font-size:1.1rem;">MongoDB</div>
-        </div>
-      </div>
-      <div class="col-6 col-md-2 text-center">
-        <div class="p-3 rounded shadow-lg" style="background: linear-gradient(120deg, #e0eafc 0%, #f8fafc 100%);">
-          <img src="Images/rest.png" alt="REST web services" class="mb-2" style="max-width:60px;">
-          <div class="fw-bold text-primary" style="font-size:1.1rem;">REST</div>
-        </div>
-      </div>
-      <div class="col-6 col-md-2 text-center">
-        <div class="p-3 rounded shadow-lg" style="background: linear-gradient(120deg, #e0eafc 0%, #f8fafc 100%);">
-          <img src="Images/git.png" alt="Git" class="mb-2" style="max-width:60px;">
-          <div class="fw-bold text-primary" style="font-size:1.1rem;">Git</div>
-        </div>
-      </div>
-      <div class="col-6 col-md-2 text-center">
-        <div class="p-3 rounded shadow-lg" style="background: linear-gradient(120deg, #e0eafc 0%, #f8fafc 100%);">
-          <img src="Images/html.png" alt="HTML" class="mb-2" style="max-width:60px;">
-          <div class="fw-bold text-primary" style="font-size:1.1rem;">HTML</div>
-        </div>
-      </div>
-      <div class="col-6 col-md-2 text-center">
-        <div class="p-3 rounded shadow-lg" style="background: linear-gradient(120deg, #e0eafc 0%, #f8fafc 100%);">
-          <img src="Images/css.svg" alt="CSS" class="mb-2" style="max-width:60px;">
-          <div class="fw-bold text-primary" style="font-size:1.1rem;">CSS</div>
-        </div>
-      </div>
-      <div class="col-6 col-md-2 text-center">
-        <div class="p-3 rounded shadow-lg" style="background: linear-gradient(120deg, #e0eafc 0%, #f8fafc 100%);">
-          <img src="Images/bootstrap.svg" alt="Bootstrap" class="mb-2" style="max-width:60px;">
-          <div class="fw-bold text-primary" style="font-size:1.1rem;">Bootstrap</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="education" class="container mb-5">
-    <h2 class="mb-4">Education</h2>
-    <div class="row justify-content-center g-4">
-      <div class="col-md-6 col-lg-3">
-        <div class="card h-100 text-center border-0 shadow-lg bg-gradient" style="background: linear-gradient(135deg, #f6d365 0%, #fda085 100%); color: #232526;">
-          <div class="card-body">
-            <div class="mb-3">
-              <span class="fa fa-graduation-cap fa-2x text-primary"></span>
-            </div>
-            <h5 class="card-title text-primary" style="font-size:1.3rem; font-weight:900; text-shadow: 0 2px 8px #fff, 0 1px 2px #facf0f; letter-spacing:1px; overflow:hidden; text-overflow:ellipsis; white-space:normal;">Master of Technology</h5>
-            <p class="fw-bold mb-1">Computer Science and Engineering</p>
-            <p class="mb-1">Vishwakarma Institute of Technology (Autonomous)</p>
-            <p class="mb-1">Savitribai Phule Pune University</p>
-            <span class="badge bg-success mb-2">2019</span>
-            <div class="text-warning fw-bold">CGPA 8.6</div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="card h-100 text-center border-0 shadow-lg bg-gradient" style="background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%); color: #232526;">
-          <div class="card-body">
-            <div class="mb-3">
-              <span class="fa fa-university fa-2x text-primary"></span>
-            </div>
-            <h5 class="card-title text-primary" style="font-size:1.3rem; font-weight:900; text-shadow: 0 2px 8px #fff, 0 1px 2px #a6c1ee; letter-spacing:1px; overflow:hidden; text-overflow:ellipsis; white-space:normal;">Bachelor of Engineering</h5>
-            <p class="fw-bold mb-1">Information Technology</p>
-            <p class="mb-1">Jayawantrao Sawant College of Engineering</p>
-            <p class="mb-1">Savitribai Phule Pune University</p>
-            <span class="badge bg-success mb-2">2016</span>
-            <div class="text-warning fw-bold">67.93%</div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="card h-100 text-center border-0 shadow-lg bg-gradient" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); color: #232526;">
-          <div class="card-body">
-            <div class="mb-3">
-              <span class="fa fa-certificate fa-2x text-primary"></span>
-            </div>
-            <h5 class="card-title text-primary" style="font-size:1.3rem; font-weight:900; text-shadow: 0 2px 8px #fff, 0 1px 2px #fed6e3; letter-spacing:1px; overflow:hidden; text-overflow:ellipsis; white-space:normal;">Diploma</h5>
-            <p class="fw-bold mb-1">Computer Technology</p>
-            <p class="mb-1">P. Dr. V. V. P. Institute of Technology & Engineering (Polytechnic)</p>
-            <p class="mb-1">Maharashtra State Board of Technical Education</p>
-            <span class="badge bg-success mb-2">2013</span>
-            <div class="text-warning fw-bold">68.90%</div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="card h-100 text-center border-0 shadow-lg bg-gradient" style="background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%); color: #232526;">
-          <div class="card-body">
-            <div class="mb-3">
-              <span class="fa fa-book fa-2x text-primary"></span>
-            </div>
-            <h5 class="card-title text-primary" style="font-size:1.3rem; font-weight:900; text-shadow: 0 2px 8px #fff, 0 1px 2px #fbc2eb; letter-spacing:1px; overflow:hidden; text-overflow:ellipsis; white-space:normal;">S.S.C</h5>
-            <p class="fw-bold mb-1">Secondary School Certificate</p>
-            <p class="mb-1">Shri Ambika Vidyalaya</p>
-            <p class="mb-1">Kedgaon Maharashtra State Board of S.S.C</p>
-            <span class="badge bg-success mb-2">2009</span>
-            <div class="text-warning fw-bold">75.69%</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="certifications" class="container mb-5">
-    <h2 class="mb-4">Certifications</h2>
-    <ul class="list-group">
-      <li class="list-group-item">ORACLE Core Java Certification - Oracle Inc. (NIIT, Pune)</li>
-      <li class="list-group-item">MongoDB Essentials - Understand the Basics of MongoDB (Online - www.udemy.com)</li>
-      <li class="list-group-item">Object Oriented Programming (Online - www.udemy.com)</li>
-      <li class="list-group-item">Object Oriented Programming in Java (Online - www.udemy.com)</li>
-      <li class="list-group-item">HTML5 and CSS3 Fundamentals (Online - www.udemy.com)</li>
-      <li class="list-group-item">Learn Angular 5 from Scratch (Online - www.udemy.com)</li>
-    </ul>
-  </section>
-
-  <section id="trainings" class="container mb-5">
-    <h2 class="mb-4">Trainings</h2>
-    <ul class="list-group">
-      <li class="list-group-item">Emerging trends in IT – Java, Servlet, PHP, MongoDB, Hadoop</li>
-      <li class="list-group-item">Advance techniques to write and present research paper</li>
-    </ul>
-  </section>
-
-  <section id="publications" class="container mb-5">
-    <h2 class="mb-4">Publications</h2>
-    <ul class="list-group">
-      <li class="list-group-item">Research Paper on Meta Search Engine for Traveler (IJRISE)</li>
-      <li class="list-group-item">Implementation Paper on Meta Search Engine for Traveler (ICRTCIT)</li>
-    </ul>
-  </section>
-
-  <section id="about" class="container mb-5 about-section">
-    <h2 class="mb-4">About Me</h2>
-    <div class="row g-4 align-items-center">
-      <div class="col-md-6">
-          <p class="lead">Hello, I'm <b>Aniket Shahane</b>, a Technical Lead with 7 years of experience in architecting and developing scalable, high-performance applications. My expertise includes Angular, Blazor, .NET Core, SQL, MongoDB, WebAPI, Microservices, Cloud Solutions, and AI.</p>
-          <p>I am passionate about leveraging cutting-edge technologies to solve complex challenges and drive digital transformation. I thrive in dynamic environments where I can lead teams, mentor developers, and deliver innovative solutions that fuel business success.</p>
-          <div class="contact-details mt-4" style="font-size:1rem; color:#485563; background:#f8fafc; border-radius:10px; box-shadow:0 2px 8px rgba(44,62,80,0.07); padding:1rem 1.5rem;">
-            <div class="mb-2"><span class="fw-bold" style="color:#232526;">Email:</span> <a href="mailto:mr.aniketshahane@gmail.com" style="color:#485563; text-decoration:none;">mr.aniketshahane@gmail.com</a></div>
-            <div class="mb-2"><span class="fw-bold" style="color:#232526;">LinkedIn:</span> <a href="https://www.linkedin.com/in/aniketshahane" target="_blank" style="color:#485563; text-decoration:none;">aniketshahane</a></div>
-            <div class="mb-2"><span class="fw-bold" style="color:#232526;">Location:</span> Pune, Maharashtra, India</div>
-          </div>
-      </div>
-      <div class="col-md-6 text-center">
-        <img src="Images/user.png" alt="Aniket Shahane" class="img-fluid rounded shadow" style="max-width:300px;">
-      </div>
-    </div>
-  </section>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     // Experience Timer Script
     var startDate = new Date("May 25, 2018").getTime();
     var pauseDate = new Date("May 25, 2019").getTime();
-    var resumeDate = new Date("June 1, 2019").getTime();
+    var resumeDate = new Date("Jul 1, 2019").getTime();
     setInterval(function () {
       var now = new Date().getTime();
         var difference;
@@ -701,8 +566,7 @@
       document.getElementById("minutes").textContent = minutes;
       document.getElementById("seconds").textContent = seconds;
     }, 1000);
-  </script>
-  <script>
+  
     // Custom animated scroll for navbar links
     document.addEventListener('DOMContentLoaded', function() {
       // Animated scroll and highlight
@@ -832,5 +696,43 @@
       box-shadow: 0 2px 8px rgba(44,62,80,0.12);
     }
   </style> 
+      <!-- 7. Final CTA Section -->
+      <section class="py-20 text-center animate-fade-in-up" style="animation-delay: 0.7s">
+        <div class="max-w-3xl mx-auto bg-navy dark:bg-slate-800 rounded-3xl p-12 shadow-xl border border-slate-800 dark:border-slate-700 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-64 h-64 bg-blue/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+          <div class="absolute bottom-0 left-0 w-64 h-64 bg-teal/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+          <div class="relative z-10">
+            <h2 class="text-3xl md:text-4xl font-heading font-semibold text-white mb-6">
+              Let’s Build Something Scalable
+            </h2>
+            <p class="text-lg text-slate-300 mb-10 max-w-xl mx-auto">
+              If you're looking for a senior engineer who understands both architecture and execution, let’s connect.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+              <a href="mailto:mr.aniketshahane@gmail.com" class="px-8 py-4 bg-blue hover:bg-blue/90 text-white font-medium rounded-lg shadow-lg hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2" style="text-decoration:none;">
+                <span class="fa fa-envelope"></span> Contact Me
+              </a>
+              <a href="https://forms.gle/2Qw6QwQwQwQwQwQw7" target="_blank" class="px-8 py-4 bg-white/10 hover:bg-white/20 text-white border border-white/20 font-medium rounded-lg backdrop-blur-sm hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2" style="text-decoration:none;">
+                <span class="fa fa-calendar"></span> Schedule a Call
+              </a>
+            </div>
+            <div class="flex flex-col sm:flex-row justify-center gap-6 mt-8 text-white text-lg">
+              <div class="flex items-center gap-2">
+                <span class="fa fa-envelope"></span>
+                <a href="mailto:mr.aniketshahane@gmail.com" class="hover:underline text-white">mr.aniketshahane@gmail.com</a>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="fa fa-phone"></span>
+                <a href="tel:+919890123456" class="hover:underline text-white">+91 9890 123456</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="border-t border-slate-200 dark:border-slate-800 py-8 text-center text-slate-500 dark:text-slate-400 text-sm">
+      <p>© <span id="current-year"></span> Aniket Shahane. All rights reserved.</p>
+    </footer>
+    <!-- Scripts -->
   </body>
 </html>
